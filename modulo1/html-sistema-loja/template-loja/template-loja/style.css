@@ -1,0 +1,68 @@
+header{
+    background-color: aliceblue;
+    border: 5px double black;
+    border-radius: 1px 17px 0px 17px;
+    text-decoration: underline;
+}
+
+header > h1{
+    text-align: center;
+}
+
+header > p{
+    text-align: center;
+}
+
+header > img{
+    margin-left: 25vh;
+}
+
+nav > a{
+    margin-left: 15vh;
+    text-decoration: none;
+}
+
+main > img{
+   width: 100%;
+   margin-top: 50px;
+   
+}
+
+footer{
+    background-color: aliceblue;
+    border: 5px double black;
+    border-radius: 1px 17px 0px 17px;
+}
+
+#link-foto{
+    margin: 30px 0px 5px 0px;
+    display: block;
+}
+
+#descricao{
+    margin: 30px 0px 5px 0px;
+    display: block;
+}
+
+#preco{
+    margin: 30px 0px 5px 0px;
+    display: block;
+
+}
+
+#quantidadeDisponivel{
+    margin: 30px 0px 5px 0px;
+    display: block;
+}
+
+.botao{
+    background-color: aqua;
+    color: black;
+    margin: 30px 0px 5px 0px;
+    width: 25vh;
+}
+
+ul{
+    list-style-type: square;
+    list-style-image: url(https://www.imagensanimadas.com/data/media/111/seta-imagem-animada-0306.gif);
+}

@@ -31,6 +31,8 @@ img {
 
 div>p:first-child {
     display: inline;
+    text-align:justify;
+    
 }
 
 div img {
@@ -73,6 +75,7 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    margin:auto;
 }
 
 #container-para-comprar {
@@ -85,7 +88,12 @@ div img {
     font-size: 60px;
 }
 
-
+#paragrafo-home{
+    display: block;
+    padding: 140px 0px 0px;
+    margin: 0px 130px;
+    text-align: center;
+}
 /**
   *
   *  ESTILOS COMPRAR 

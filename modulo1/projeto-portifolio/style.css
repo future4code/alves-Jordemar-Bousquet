@@ -1,6 +1,17 @@
+
+
 *{
     margin: 0;
     padding: 0;
+}
+
+/* Configuração da página princial */
+
+.CorpoPaginaPrincipal{
+background: #ebe7e7;
+background: -moz-linear-gradient(top, #6d6d6d 0%, #224ead 100%);
+background: -webkit-linear-gradient(top, #6d6d6d 0%, #224ead 100%);
+background: linear-gradient(to bottom, #6d6d6d 0%, #224ead 100%);
 }
 
 
@@ -29,7 +40,7 @@
     font-family: "Courier New", Courier, monospace;
     position: relative;
     top: 15vh;
-    left: -59vh;
+    left: -75vh;
     color: rgb(8, 8, 8);
     text-shadow: rgb(71 71 71) 3px 5px 2px;
     font-size: 367%;
@@ -40,8 +51,9 @@
 
 .desenho{
     position: relative;
-    bottom: -95px;
-    left: 554px;
+    bottom: -81px;
+    left: 451px;
+    width: 65%;
 }
 
 main p {
@@ -57,4 +69,99 @@ main p {
 footer{
     display: block;
     text-align: center;
+}
+
+/*Configuração mais sobre*/
+
+.CorpoMaisSobre{
+    background-color: #8daef3;
+}
+
+.TituloMaisSobre{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 15%;
+}
+
+.listaMaisSobre{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    list-style: inside;
+    list-style-type: lower-roman;
+    line-height: 50px;
+}
+
+.listaHabilidades{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    list-style: inside;
+    list-style-type: square;
+    line-height: 35px;
+}
+
+.FotoMaisSobre{
+    display: block;
+    width: 20%;
+    border-radius: 80%;
+    margin: auto;
+}
+
+.botãoVoltarMs{
+    padding: 5px 0px 5px 0px;
+    margin-left: 430px;
+    margin-top: 15px;
+    margin-bottom: 18px;
+    width: 15%;
+    border-radius: 15%;
+    font-weight: bolder;
+    background-color: rgb(0, 102, 255);
+}
+
+.botãoVoltarMs:hover{
+    background-color: #021642;
+    color: #ebe7e7;
+}
+
+/*Configuraçao página formulário*/
+
+.corpoContato{
+    background-color: #8daef3;
+}
+
+.formulario{
+    text-align: center;
+    line-height: 600%;
+}
+
+.botaoEnviar{
+    width: 18%;
+    font-weight: 900;
+    background-color: rgb(0, 102, 255);
+
+}
+
+.botaoEnviar:hover{
+    background-color: #021642;
+    color: #ebe7e7;
+
+}
+
+.botãoVoltarContato{
+    padding: 5px 0px 5px 0px;
+    margin-left: 430px;
+    margin-top: 15px;
+    margin-bottom: 18px;
+    width: 15%;
+    border-radius: 15%;
+    font-weight: bolder;
+    background-color: rgb(0, 102, 255);
+
+}
+
+.botãoVoltarContato:hover{
+    background-color: #021642;
+    color: #ebe7e7;
 }

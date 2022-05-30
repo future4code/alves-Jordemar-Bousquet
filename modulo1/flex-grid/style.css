@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilizacao do topo da pagina*/
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: mediumvioletred;
+    padding: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.titulo{
+    position: relative;
+    right: 37%;
+}
+
+.botao{
+    padding: 4px 10px;
+    background-color: rgb(175, 175, 175);
+}
+
+.iconeBolo{
+    width: 21px;
+    height: 23px;
+}
+/* Estilizacao do menu lateral*/
+
+
+nav{
+    height: 100%;
+    width: 30%;
+    background-color: #f2d0e0;
+    position: fixed;
+    top: 15;
+    left: 0;
+}
+
+nav a {
+    display: block;
+    padding: 12px 10px 12px 32px;
+    text-decoration: none;
+    color: black;
+    font-style: normal;
+}
+
+a:hover{
+    background-color: mediumvioletred;
+}
+
+nav img{
+    width: 20px;
+    position: relative;
+    top: 4px;
+}
+
+.setaHome{
+    margin-left: 170px;
+}
+
+.setaProdutoCarrinho{
+    margin-left: 140px;
+
+}
+
+.setaPerfil{
+    margin-left: 179px;
+
+}
+
+.icone{
+    position: relative;
+    right: 30px;
+}
+

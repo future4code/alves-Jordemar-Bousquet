@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+}
+
+.Tube{
+    display: grid;
+    margin: 65px;
+    width: 50%;
+    height: 50%;
+    grid-template-rows: 100px 200px 200px 50px;
+    grid-template-columns: 200px 200px 200px 200px;
+    gap: 30px;
+
+    grid-template-areas: 'head head head head'
+                         'media1 media2 media3 media4'
+                         'media5 media6 media7 media8'
+                         'footer footer footer footer';
+}
+
+
+header{
+    grid-area: head;
+    background-color: rgba(194, 133, 0, 0.726);
+    padding-top: 30px;
+    
+}
+header input{
+    margin-left: 78%;
+
+}
+
+.box1{
+    grid-area: media1;
+    border: 1px solid black;
+}
+
+.box2{
+    grid-area: media2;
+    border: 1px solid black
+
+}
+
+.box3{
+    grid-area: media3;
+    border: 1px solid black
+}
+
+.box4{
+    grid-area: media4;
+    border: 1px solid black
+}
+    
+.box5{
+    grid-area: media5;
+    border: 1px solid black
+}
+
+.box6{
+    grid-area: media6;
+    border: 1px solid black
+}
+
+.box7{
+    grid-area: media7;
+    border: 1px solid black
+}
+
+.box8{
+    grid-area: media8;
+    border: 1px solid black
+}
+
+
+footer{
+    grid-area: footer;
+    background-color: rgba(24, 36, 36, 0.897);
+    color: beige;
+    text-align: left;
+}

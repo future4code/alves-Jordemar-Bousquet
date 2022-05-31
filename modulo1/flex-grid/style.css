@@ -69,7 +69,7 @@ nav img{
 }
 
 .setaPerfil{
-    margin-left: 179px;
+    margin-left: 171px;
 
 }
 
@@ -78,3 +78,17 @@ nav img{
     right: 30px;
 }
 
+
+
+.galeriabolo{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 31%;
+    gap:20px;
+   }
+
+.bolo{
+    padding: 10px;
+    width: 22%;
+    border: 2px solid black;
+}

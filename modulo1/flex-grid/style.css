@@ -83,12 +83,20 @@ nav img{
 .galeriabolo{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 31%;
-    gap:20px;
+    justify-content: space-between;
+    padding-left: 32%;
+    gap:5px;
    }
 
-.bolo{
-    padding: 10px;
-    width: 22%;
+div{
     border: 2px solid black;
+    width: 165px;
+
+}
+
+
+.bolo{
+    padding: 5px;
+    width: 85%;
+   
 }

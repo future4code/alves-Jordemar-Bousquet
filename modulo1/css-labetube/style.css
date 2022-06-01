@@ -82,3 +82,42 @@ footer{
     color: beige;
     text-align: left;
 }
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    .Tube{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    header{
+        grid-area: head;
+        position: fixed;
+        background-color: rgb(194, 133, 0);
+        width: 100%;
+        right: 0%;
+        top: 0%;
+
+    }
+
+    header input{
+        margin-left: 50%;
+
+    }
+
+
+    .box1,.box2,.box3,.box4,.box5,.box6,.box7,.box8{
+        grid-area: media1;
+        border: 1px solid black;
+        margin-top: 35px;
+        text-align: center;
+    }
+    footer{
+        grid-area: footer;
+        background-color: rgba(24, 36, 36, 0.897);
+        color: beige;
+        text-align: center;
+        
+    }
+}

@@ -1,17 +1,22 @@
 
 import './App.css';
+import {Container}from "./styled"
+import { Borda } from './styled';
+import BotaoEnviar from './componentes/BotaoEnviar';
+import CaixaMensagem from './componentes/CaixaMensagem';
+import CaixaUsuario from './componentes/CaixaUsuario';
 
 function App() {
   return (
-    <div className='App'>
-      <div className ='borda'>
-     
-      <input className ="usuario" placeholder = "Usuário" type={'text'}></input>
-      <input className= "mensagem" placeholder = "Mensagem" type={'text'}></input>
-      <button>Enviar</button>
+    <Container>
 
-      </div>
-    </div>
+      <Borda>
+      <CaixaUsuario text="Usuário"/>
+      <CaixaMensagem text= "Mensagem" />
+      <BotaoEnviar/>
+      </Borda>
+      
+    </Container>
   );
 }
 

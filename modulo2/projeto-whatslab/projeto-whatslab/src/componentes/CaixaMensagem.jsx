@@ -9,9 +9,30 @@ export const InputMensagem = styled.input`
 
 
 export default class CaixaMensagem extends Component {
+
+      state = {
+
+        ValorInputMensagem:"",
+    }
+
+    onChangeUsuario = (event) => {
+      this.setState({ValorInputMensagem: event.target.value,});
+      
+
+    };
+
+    
+
     render() {
+      console.log(this.state.ValorInputMensagem)
+
       return (
-        <InputMensagem type="text" placeholder = {this.props.text} />
+        <InputMensagem 
+        name ="mensagem"
+        onChange={this.onChangeUsuario}
+        value={this.state.ValorInputMensagem}
+        type="text" 
+        placeholder = {this.props.text} />
       )
     }
   }

@@ -11,9 +11,30 @@ export const InputUsuario = styled.input`
 
 
 export default class CaixaUsuario extends Component {
-  render() {
+    state = {
+
+        ValorInputUsuario:"",
+    }
+
+    onChangeUsuario = (event) => {
+        this.setState({ValorInputUsuario: event.target.value,});
+      
+    
+    };
+
+
+  render()
+  {
+    console.log(this.state.ValorInputUsuario)
+
     return (
-    <InputUsuario type="text" placeholder = {this.props.text} />
+      
+    <InputUsuario
+    name="usuario"
+    type="text"
+    onChange={this.onChangeUsuario} 
+    value={this.state.ValorInputUsuario}
+    placeholder = {this.props.text} />
     )
   }
 }

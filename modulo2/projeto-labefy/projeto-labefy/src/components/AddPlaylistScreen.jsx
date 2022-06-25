@@ -37,6 +37,7 @@ export default class addPlaylistScreen extends Component {
         onChange ={this.handlePlaylistName}
         />
         <button onClick={this.createPlaylist}>Adicionar</button>
+        
 
         
       </div>

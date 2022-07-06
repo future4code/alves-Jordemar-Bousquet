@@ -1,44 +1,52 @@
 import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function PokeCard(props) {
   // Passo 4b
   // Implementa suas variáveis de estado aqui.
 
-  // Passo 4c
-  // componentDidMount() {
-  //   this.pegaPokemon(this.props.pokeName);
-  // };
+  const [pokemon, setPokemon] = useState({})
 
   // Passo 4c
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.pokeName !== this.props.pokeName) {
-  //     this.pegaPokemon(this.props.pokeName);
-  //   };
-  // };
+// useEffect(()=>{
+//   pegaPokemon(pokeName)
+// },[])
+
 
   // Passo 4c
-  // pegaPokemon = (pokeName) => {
-  //   axios
-  //     .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-  //     .then((res) => {
-  //       this.setState({ pokemon: res.data });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  useEffect(()=>{
+    // if (pokeName !== props.pokeName) {
+    //       pegaPokemon(props.pokeName);
+    //     };
+  
+  // Passo 4c
+  const pegaPokemon = (pokeName) => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${props.pokeName}`)
+      .then((res) => {
+        setPokemon(res.data)
+      
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  pegaPokemon()
+},[props.pokeName])
 
   return (
     <figure>
       {/* Passo 4d */}
-      <strong>Nome do Pokémon</strong>
+      <strong>{pokemon.name && pokemon.name.toUpperCase()}</strong>
       {/* Passo 4d */}
-      <p>Peso: 1000 Kg</p>
+      <p>Peso: {pokemon.weight}</p>
       {/* Passo 4d */}
-      <p>Tipo: Fire</p>
+      <p>Tipo: {pokemon.types && pokemon.types[0].type.name}</p>
       {/* Passo 4d */}
-      {true && (
-        <img src={""} alt={"Nome do Pokémon"} />
+      {pokemon.sprites && (
+        <img src={pokemon.sprites.front_default} alt={"Nome do Pokémon"} />
       )}
     </figure>
   );

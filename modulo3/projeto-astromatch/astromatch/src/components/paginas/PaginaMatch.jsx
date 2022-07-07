@@ -2,7 +2,9 @@ import React from 'react'
 
 function PaginaMatch() {
   return (
-    <div>PaginaMatch</div>
+    <div>
+      <h1>Matches</h1>
+    </div>
   )
 }
 

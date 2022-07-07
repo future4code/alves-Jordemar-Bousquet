@@ -1,37 +1,47 @@
  import { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { BASE_URL } from '../constants/urls';
+import axios from 'axios';
+import { BASE_URL } from '../constants/urls';
 
 
 function PaginaPerfil() {
 
-// const [perfil, setPerfil] = useState('');
+const [perfil, setPerfil] = useState('');
 
 
-// useEffect(() => {
+useEffect(() => {
 
-//     pegaPerfil();
+    pegaPerfil();
 
-// },[]);
+},[]);
 
 
-// const pegaPerfil = () => {
+const pegaPerfil = () => {
 
-// const url = `${BASE_URL}/:aluno/person`;
+const url = `${BASE_URL}:aluno/person`;
 
-// axios.get(url)
-//             .then((res) => {
-//                 setPerfil(res.data.profile);
-//                 console.log(res.data.profile)
-//             })
-//             .catch((err) => {
-//                 console.log(err.message);
-//             });
+axios.get(url)
+            .then((res) => {
+                setPerfil(res.data.profile);
+                
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
-// }
+}
 
   return (
-    <div>PaginaPerfil</div>
+
+    <div>
+      <h1>Perfil</h1>
+      <img 
+      src ={perfil.photo}
+      alt ={"Foto de Perfil"}
+      height ={"200px"}/>
+      <p>{perfil.name}, {perfil.age}</p>
+      <p>{perfil.bio}</p>
+      <button onClick={pegaPerfil}>Proximo Perfil</button>
+      </div>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import RenderizarPaginas from './components/paginas/RenderizarPaginas'
+import RenderizarPaginas from './components/paginas/Renderizar/RenderizarPaginas'
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Header from '../Header'
-import PaginaMatch from './PaginaMatch';
-import PaginaPerfil from './PaginaPerfil';
+import Header from '../../Header'
+import PaginaMatch from '../Match/PaginaMatch'
+import PaginaPerfil from '../Perfil/PaginaPerfil';
 
 function RenderizarPaginas() {
 

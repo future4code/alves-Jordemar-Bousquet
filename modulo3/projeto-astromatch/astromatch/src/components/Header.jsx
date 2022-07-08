@@ -1,15 +1,23 @@
 import React from 'react'
+import {ContainerHead,AstroTag, ContainerTitulo, MachTag, BotaoMatch, BotaoReset} from './styledHeader'
 
 function Header(props) {
   return (
-    <header>
-        <h1>AstroMatch</h1>
-        {props.pagina === 'perfil'?
-        <button onClick={props.mudaParaMatch}>Ir para matches</button>
+    <ContainerHead>
+      <ContainerTitulo>
+        <AstroTag>Astro</AstroTag>
+        <MachTag>Match</MachTag>
+      </ContainerTitulo>
+       
+
+      <div>
+      {props.pagina === 'perfil'?
+        <BotaoMatch onClick={props.mudaParaMatch}><img src="https://img.icons8.com/ios-filled/50/7950F2/--tinder.png"/></BotaoMatch>
         :
-        <button onClick={props.mudaParaPerfil}>Ir para perfi</button>
+        <BotaoReset onClick={props.mudaParaPerfil}><img src="https://img.icons8.com/ios-glyphs/60/22C3E6/back.png"/></BotaoReset>
       }
-    </header>
+      </div>
+    </ContainerHead>
     
   )
 }

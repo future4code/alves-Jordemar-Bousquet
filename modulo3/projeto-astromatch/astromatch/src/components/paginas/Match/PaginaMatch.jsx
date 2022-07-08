@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { BASE_URL } from '../constants/urls'
+import { BASE_URL } from '../../constants/urls'
 import axios from 'axios'
 function PaginaMatch() {
 

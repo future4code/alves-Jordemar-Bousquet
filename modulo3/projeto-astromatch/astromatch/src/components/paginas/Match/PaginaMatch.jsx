@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { BASE_URL } from '../../constants/urls'
 import axios from 'axios'
+import { ImgMatch,ContainerMatch,ContainerCard, MatchNome, MatchBio } from './styledMatch';
+
 function PaginaMatch() {
 
   const [match,setMatch] = useState('')
@@ -30,23 +32,23 @@ function PaginaMatch() {
 
   const listaMatches = match && match.map((matches) => {
         return(
-          <div key={matches.id}>
-            <img src={matches.photo} 
+          <ContainerCard key={matches.id}>
+            <ImgMatch src={matches.photo} 
             alt= {`Foto ${matches.name}`}
-            height ={"50px"}/>
-            {matches.name}
+            />
+           <MatchNome>{matches.name} - {matches.age}</MatchNome>
             
-            <hr/>
-          </div>
+            <MatchBio><br/>{matches.bio}</MatchBio>
+          </ContainerCard>
         )
 
   })
 
   return (
-    <div>
+    <ContainerMatch>
       <h1>Matches</h1>
         {listaMatches}
-    </div>
+    </ContainerMatch>
   )
 }
 

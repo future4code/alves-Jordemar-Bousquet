@@ -90,9 +90,9 @@ function PaginaPerfil() {
   ) : (
 
     <div>
-      <h1>Acabaram os matches! Clique em 'Resetar Perfis' para reiniciar</h1>
+      <h4>Acabaram os matches! Clique em 'Resetar Perfis' para reiniciar</h4>
       <br/>
-      <button onClick={resetaPerfil}>Resetar Perfils</button>
+      <Botao onClick={resetaPerfil}>Resetar Perfils</Botao>
     </div>
 
   )

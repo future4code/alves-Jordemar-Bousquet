@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls';
-import {ContainerPerfil, ImagemPerfil} from './styledPerfil'
+import {ContainerPerfil, ImagemPerfil, ContainerTitulo, ContainerDescricao,Botao} from './styledPerfil'
 
 
 function PaginaPerfil() {
@@ -72,15 +72,20 @@ function PaginaPerfil() {
 
   const PerfilCard = perfil ? (
     <ContainerPerfil>
+      
       <ImagemPerfil
         src={perfil.photo}
         alt={"Foto de Perfil"}
-        height={"500px"} />
+        />
+      <ContainerTitulo>
       <p>{perfil.name}, {perfil.age}</p>
+      </ContainerTitulo>
+      <ContainerDescricao>
       <p>{perfil.bio}</p>
-      <button onClick={() => { escolhePerfil(perfil.id, false) }}>Dislike</button>
-      <button onClick={() => { escolhePerfil(perfil.id, true) }}>Like</button>
-
+      </ContainerDescricao>
+      <Botao onClick={() => { escolhePerfil(perfil.id, false) }}><img src="https://img.icons8.com/sf-regular-filled/48/228BE6/x.png"/></Botao>
+      <Botao onClick={() => { escolhePerfil(perfil.id, true) }}><img src="https://img.icons8.com/color/48/FA5252/filled-like.png"/></Botao>
+      
     </ContainerPerfil>
   ) : (
 

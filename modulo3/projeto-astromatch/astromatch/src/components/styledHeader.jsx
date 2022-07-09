@@ -32,7 +32,7 @@ export const BotaoMatch = styled.button`
   }
     
 `
-export const BotaoReset = styled.button`
+export const BotaoDeslike = styled.button`
             width:80px;
             background-color:white;
             border:none;

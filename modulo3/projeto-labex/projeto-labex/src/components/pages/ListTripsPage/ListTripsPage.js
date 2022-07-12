@@ -1,11 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class ListTripsPage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Voltar||</a>
-        <a href='#'>Inscerver-se</a>
+const ListTripsPage = () => {
+
+const navigate = useNavigate()
+
+const goBack = () =>{
+  navigate(-1)
+}
+
+const goToAplicationForm = () =>{
+  navigate('/ApplicationFormPage')
+}
+
+
+  return (
+    <div>
+        <button onClick={goBack}>Voltar</button>
+        <button onClick={goToAplicationForm}>Inscerver-se</button>
         <div>
           <p>Nome: Mó viajem</p>
           <p>Descrição: Não esqueça a toalha, o anel de pedir carona e o destino final</p>
@@ -13,9 +25,8 @@ export class ListTripsPage extends Component {
           <p>Duração: 424242424242424242</p>
           <p>Data: 2022-07-21</p>
         </div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default ListTripsPage

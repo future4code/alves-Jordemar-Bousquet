@@ -1,17 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class LoginPage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Voltar</a>
+const LoginPage = () => {
+
+const navigate = useNavigate()
+
+const goBackHome = () =>{
+    navigate('/')
+  }
+
+  const goToAdminHome = () =>{
+    navigate('/AdminHomePage')
+  }
+
+
+
+
+  return (
+    <div>
+        <button onClick={goBackHome}>Voltar</button>
         <h1>Login</h1>
         <input placeholder="E-mail"></input>
         <input placeholder="Senha"></input>
-        <button>Entrar</button>
-      </div>
-    )
-  }
+        <button onClick={goToAdminHome}>Entrar</button>
+    </div>
+  )
 }
 
 export default LoginPage

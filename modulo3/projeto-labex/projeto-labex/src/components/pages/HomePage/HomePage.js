@@ -1,16 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class HomePage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Login</a>
+const HomePage = () => {
+
+const navigate = useNavigate()
+
+const goToListTrip = () => {
+  navigate('/ListTripsPage')
+
+}
+
+const goToLogin = () => {
+  navigate('/LoginPage')
+}
+
+  return (
+    <div>
+        
         <h1>LabeX</h1>
-        <h3>Encontre as Melhores Viagéns Espaciais</h3>
-        <button>Ver Viagens</button>
-      </div>
-    )
-  }
+        <h3>Encontre as Melhores Viagens Espaciais</h3>
+        <button onClick={goToListTrip}>Ver Viagens</button>
+        <button onClick={goToLogin}>Login</button>
+        
+    </div>
+  )
 }
 
 export default HomePage

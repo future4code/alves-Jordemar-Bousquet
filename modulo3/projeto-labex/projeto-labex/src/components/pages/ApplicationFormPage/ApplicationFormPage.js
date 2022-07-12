@@ -1,10 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class ApplicationFormPage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Voltar</a>
+const ApplicationFormPage = () => {
+  const navigate = useNavigate()
+
+  const goBack = () =>{
+    navigate(-1)
+  }
+
+  return (
+    <div>
+      <button onClick={goBack}>Voltar</button>
         <h3>Inscreva se para uma Viagem</h3>
         <div>
           <form>
@@ -30,9 +36,8 @@ export class ApplicationFormPage extends Component {
           </form>
         </div>
         <button>Enviar</button>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default ApplicationFormPage

@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class CreateTripPage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Voltar</a>
-        ||
-        <a href='#'>Logout</a>
+const CreateTripPage = () => {
+
+const navigate = useNavigate()
+
+const goBack = () =>{
+    navigate(-1)
+  }
+
+const goToLogout = () =>{
+    navigate('/LoginPage')
+  }
+
+
+  return (
+    <div>
+      <button onClick={goBack}>Voltar</button>
+        <button onClick={goToLogout}>Logout</button>
         <div>
         <h3>Criar Viagem</h3>
         <forms>
@@ -24,9 +35,8 @@ export class CreateTripPage extends Component {
         </forms>
         </div>
         <button>Criar</button>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default CreateTripPage

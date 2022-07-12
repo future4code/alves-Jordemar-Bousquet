@@ -1,11 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class AdminHomePage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Logout||</a>
-        <a href='#'>Criar Viagem</a>
+const AdminHomePage = () => {
+
+const navigate = useNavigate()
+
+const goToLogout = () =>{
+  navigate('/LoginPage')
+}
+
+const goTocreateTrip = () =>{
+  navigate('/CreateTripPage')
+}
+
+
+  return (
+    <div>
+      <button onClick={goToLogout}>Logout</button>
+        <button onClick={goTocreateTrip}>Criar Viagem</button>
         <div>
           <p>Nome: Mó viajem</p>
           <p>Descrição: Não esqueça a toalha, o anel de pedir carona e o destino final</p>
@@ -14,10 +26,8 @@ export class AdminHomePage extends Component {
           <p>Data: 2022-07-21</p>
           <button>Excluir Viagem</button>
         </div>
-       
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default AdminHomePage

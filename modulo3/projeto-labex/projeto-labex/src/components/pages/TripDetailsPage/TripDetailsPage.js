@@ -1,12 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export class TripDetailsPage extends Component {
-  render() {
-    return (
-      <div>
-        <a href='#'>Voltar</a>
-        ||
-        <a href='#'>Logout</a>
+const TripDetailsPage = () => {
+
+const navigate = useNavigate()
+
+const goBack = () =>{
+  navigate(-1)
+}
+
+const goToLogout = () =>{
+  navigate('/LoginPage')
+}
+
+  return (
+    <div>
+       <button onClick={goBack}>Voltar</button>
+        <button onClick={goToLogout}>Logout</button>
         <div>
         <h1>Grande Prioridade</h1>
         <p>Nome: Grande Prioridade</p>
@@ -34,10 +44,8 @@ export class TripDetailsPage extends Component {
         </ul>
 
         </div>
-        
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default TripDetailsPage

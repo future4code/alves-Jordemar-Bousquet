@@ -1,10 +1,31 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import { goToTripDetails, goToLogout, goTocreateTrip } from '../../Routes/coordinator'
+import { BASE_URL } from '../../constants/urls'
+import axios from 'axios'
 
 const AdminHomePage = () => {
 
 const navigate = useNavigate()
+
+const token = localStorage.getItem('token')
+
+useEffect(() => {
+  axios.get(`${BASE_URL}/trip/C86run9BAkD4LLw4bspV`,{
+    headers:{
+      auth:token
+    }
+  })
+  .then((resp) =>{
+      console.log("deu certo:",resp.data.trip)
+
+  })
+  .catch((err) => {
+    console.log("deu erro:",err.response)
+  })
+
+},[])
 
   return (
     <div>

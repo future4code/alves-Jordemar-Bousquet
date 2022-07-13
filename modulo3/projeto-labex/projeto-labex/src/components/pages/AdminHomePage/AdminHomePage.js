@@ -1,23 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { goToTripDetails, goToLogout, goTocreateTrip } from '../../Routes/coordinator'
 
 const AdminHomePage = () => {
 
 const navigate = useNavigate()
 
-const goToLogout = () =>{
-  navigate('/LoginPage')
-}
-
-const goTocreateTrip = () =>{
-  navigate('/CreateTripPage')
-}
-
-
   return (
     <div>
-      <button onClick={goToLogout}>Logout</button>
-        <button onClick={goTocreateTrip}>Criar Viagem</button>
+      <button onClick={() => goToLogout(navigate)}>Logout</button>
+        <button onClick={() => goTocreateTrip(navigate)}>Criar Viagem</button>
         <div>
           <p>Nome: Mó viajem</p>
           <p>Descrição: Não esqueça a toalha, o anel de pedir carona e o destino final</p>
@@ -25,6 +17,7 @@ const goTocreateTrip = () =>{
           <p>Duração: 424242424242424242</p>
           <p>Data: 2022-07-21</p>
           <button>Excluir Viagem</button>
+          <button onClick ={() => goToTripDetails(navigate)}>Detalhes</button>
         </div>
     </div>
   )

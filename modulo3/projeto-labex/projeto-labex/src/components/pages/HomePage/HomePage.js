@@ -1,26 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { goToListTrip, goToLogin } from '../../Routes/coordinator'
 
 const HomePage = () => {
 
 const navigate = useNavigate()
 
-const goToListTrip = () => {
-  navigate('/ListTripsPage')
-
-}
-
-const goToLogin = () => {
-  navigate('/LoginPage')
-}
 
   return (
     <div>
         
         <h1>LabeX</h1>
         <h3>Encontre as Melhores Viagens Espaciais</h3>
-        <button onClick={goToListTrip}>Ver Viagens</button>
-        <button onClick={goToLogin}>Login</button>
+        <button onClick={() => goToListTrip(navigate)}>Ver Viagens</button>
+        <button onClick={() => goToLogin(navigate)}>Login</button>
         
     </div>
   )

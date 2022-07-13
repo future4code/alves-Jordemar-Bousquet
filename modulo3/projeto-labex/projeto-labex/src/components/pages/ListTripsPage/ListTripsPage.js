@@ -1,23 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { goBack, goToAplicationForm } from '../../Routes/coordinator'
 
 const ListTripsPage = () => {
 
 const navigate = useNavigate()
 
-const goBack = () =>{
-  navigate(-1)
-}
-
-const goToAplicationForm = () =>{
-  navigate('/ApplicationFormPage')
-}
-
 
   return (
     <div>
-        <button onClick={goBack}>Voltar</button>
-        <button onClick={goToAplicationForm}>Inscerver-se</button>
+        <button onClick={() => goBack(navigate)}>Voltar</button>
+        <button onClick={() => goToAplicationForm(navigate)}>Inscerver-se</button>
         <div>
           <p>Nome: Mó viajem</p>
           <p>Descrição: Não esqueça a toalha, o anel de pedir carona e o destino final</p>

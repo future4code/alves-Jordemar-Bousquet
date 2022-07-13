@@ -1,22 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { goBack, goToLogout } from '../../Routes/coordinator'
 
 const TripDetailsPage = () => {
 
 const navigate = useNavigate()
 
-const goBack = () =>{
-  navigate(-1)
-}
-
-const goToLogout = () =>{
-  navigate('/LoginPage')
-}
 
   return (
     <div>
-       <button onClick={goBack}>Voltar</button>
-        <button onClick={goToLogout}>Logout</button>
+       <button onClick={() => goBack(navigate)}>Voltar</button>
+        <button onClick={() => goToLogout(navigate)}>Logout</button>
         <div>
         <h1>Grande Prioridade</h1>
         <p>Nome: Grande Prioridade</p>

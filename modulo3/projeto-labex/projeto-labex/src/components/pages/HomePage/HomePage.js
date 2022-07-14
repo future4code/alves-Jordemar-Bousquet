@@ -30,8 +30,8 @@ const navigate = useNavigate()
         alignItems="center"
         >
         
-        <Typography variant="h2" gutterBottom >LabeX</Typography>
-        <Typography variant="h4" gutterBottom>Encontre as Melhores Viagens Espaciais !</Typography>
+        <Typography variant="h2" color="primary" gutterBottom >LabeX</Typography>
+        <Typography variant="h4" color="primary" gutterBottom>Encontre as Melhores Viagens Espaciais !</Typography>
         <br/>
         <Button variant="outlined" color="primary" onClick={() => goToListTrip(navigate)}>Ver Viagens</Button>
         </Grid>

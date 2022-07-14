@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useForms from "../../hooks/useForms";
 import { useNavigate } from 'react-router-dom'
 import { goBackHome } from '../../Routes/coordinator'
 import axios from 'axios'
@@ -6,32 +7,36 @@ import { BASE_URL } from '../../constants/urls'
 
 const LoginPage = () => {
 
-const [email,setEmail] = useState('')
-const [senha, setSenha] = useState('')
+//const [email,setEmail] = useState('')
+//const [senha, setSenha] = useState('')
+
+const { form, onChange, cleanFields } = useForms({
+    email:'',
+    password:''
+})
 
 const navigate = useNavigate()
 
-const getEmail = (event) => {
-  setEmail(event.target.value)
-}
+// const getEmail = (event) => {
+//   setEmail(event.target.value)
+// }
 
-const getSenha = (event) => {
-  setSenha(event.target.value)
-}
+// const getSenha = (event) => {
+//   setSenha(event.target.value)
+// }
 
-const submitLogin = () => {
-  const body ={
-      email:email,
-      password:senha
+const submitLogin = (event) => {
+  event.preventDefault()
 
-  }
-  axios.post(`${BASE_URL}/login`,body)
+  axios.post(`${BASE_URL}/login`,form)
   .then((resp) => {
       localStorage.setItem('token', resp.data.token)
       navigate('/admin/trips/list')
+      cleanFields()
 
   }).catch((err) =>{
       alert("Email ou Senha Invalido")
+      cleanFields()
 
   })
 
@@ -39,19 +44,25 @@ const submitLogin = () => {
 
   return (
     <div>
+      <form  onSubmit={submitLogin}>
         <button onClick={() => goBackHome(navigate)}>Voltar</button>
         <h1>Login</h1>
         <input 
+        name ={'email'}
         placeholder="E-mail" 
         type ="email"
-        value ={email}
-        onChange={getEmail}/>
-        <input 
+        value ={form.email}
+        onChange={onChange}
+        required/>
+        <input
+        name ={'password'}
         placeholder="Senha"
         type ="password"
-        value ={senha}
-        onChange={getSenha}/>
-        <button onClick={submitLogin}>Entrar</button>
+        value ={form.password}
+        onChange={onChange}
+        required/>
+        <button >Entrar</button>
+        </form>
     </div>
   )
 }

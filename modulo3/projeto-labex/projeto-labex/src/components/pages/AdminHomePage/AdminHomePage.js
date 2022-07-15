@@ -6,7 +6,7 @@ import { BASE_URL } from '../../constants/urls'
 import axios from 'axios'
 
 const AdminHomePage = () => {
-  const [trips,setTrips] = useState('')
+const [trips,setTrips] = useState('')
 
 const navigate = useNavigate()
 
@@ -38,6 +38,8 @@ const getTrips = () => {
 const ListTrips = trips && trips.map((trip) =>{
   return <div key={trip.id} value={trip.id}>
     <p><b>Nome:</b>{trip.name}</p>
+    <button onClick ={() => goToTripDetails(navigate, trip.id)}>Detalhes</button>
+    
     <hr/>
     
     </div>
@@ -50,7 +52,6 @@ const ListTrips = trips && trips.map((trip) =>{
         <div>
          <h2>Painel Administrativo</h2>
           {ListTrips}
-          <button onClick ={() => goToTripDetails(navigate)}>Detalhes</button>
         </div>
     </div>
   )

@@ -1,9 +1,44 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useParams } from 'react-router-dom'
+import { useEffect,useState } from 'react'
 import { goBack, goToLogout } from '../../Routes/coordinator'
+import { BASE_URL } from '../../constants/urls'
+import axios from 'axios'
 
 const TripDetailsPage = () => {
 
+const [tripDetail, setTripDetail] = useState({})
+
+const trip = useParams()
 const navigate = useNavigate()
+
+
+
+const token = localStorage.getItem('token')
+
+
+
+const GetTripDetail = () =>{
+  axios.get(`${BASE_URL}/trip/${trip.id}`,{
+    headers:{
+      auth:token
+    }
+  }).then((res) =>{
+    setTripDetail(res.data.trip)
+    
+    
+
+  }).catch((err) =>{
+
+    console.log(err)
+  })
+}
+
+useEffect(()=>{
+  GetTripDetail()
+
+},[])
+
+console.log(tripDetail)
 
 
   return (
@@ -11,12 +46,11 @@ const navigate = useNavigate()
        <button onClick={() => goBack(navigate)}>Voltar</button>
         <button onClick={() => goToLogout(navigate)}>Logout</button>
         <div>
-        <h1>Grande Prioridade</h1>
-        <p>Nome: Grande Prioridade</p>
-        <p>Descrição: Grande Prioridade Grande Prioridade</p>
-        <p>Planeta: Mercúrio</p>
-        <p>Duração: 1000</p>
-        <p>Data: 2022-07-22</p>
+        <h3>{tripDetail.name}</h3>
+        <p>Descrição: {tripDetail.description}</p>
+        <p>Planeta: {tripDetail.planet}</p>
+        <p>Duração: {tripDetail.durationInDays}</p>
+        <p>Data: {tripDetail.date}</p>
         </div>
 
         <div>

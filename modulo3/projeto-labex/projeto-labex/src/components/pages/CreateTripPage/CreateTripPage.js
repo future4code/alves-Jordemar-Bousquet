@@ -21,6 +21,7 @@ const navigate = useNavigate()
 const onClickCreate = (event) => {
   event.preventDefault()
   CreateTrip()
+  cleanFields()
 
 }
 
@@ -32,11 +33,11 @@ const CreateTrip = () => {
     }
   }).then((resp) =>{
 
-    console.log(resp)
+    alert('Viagem Criada com Sucesso!!!')
 
   }).catch((err) => {
 
-    console.log(err)
+    alert('Erro!! Tente Novamente')
   })
 
 }

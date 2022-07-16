@@ -25,8 +25,6 @@ const GetTripDetail = () =>{
   }).then((res) =>{
     setTripDetail(res.data.trip)
     
-    
-
   }).catch((err) =>{
 
     console.log(err)
@@ -38,9 +36,22 @@ useEffect(()=>{
 
 },[])
 
-console.log(tripDetail)
+const canditates = tripDetail.candidates
 
+const ListCandidate = canditates && canditates.map((canditate) => {
+  return <div key={canditate.id}>
+    <p><b>Nome: </b>{canditate.name}</p>
+    <p><b>Idade: </b>{canditate.age}</p>
+    <p><b>Profissão: </b>{canditate.profession}</p>
+    <p><b>País: </b>{canditate.country}</p>
+    <p><b>Porque devemos escolher você?: </b>{canditate.applicationText}</p>
+    <button>Aprovar</button>
+    <button>Repovar</button>
+    
+    </div>
+        
 
+})
   return (
     <div>
        <button onClick={() => goBack(navigate)}>Voltar</button>
@@ -52,16 +63,12 @@ console.log(tripDetail)
         <p>Duração: {tripDetail.durationInDays}</p>
         <p>Data: {tripDetail.date}</p>
         </div>
-
+        <hr/>
         <div>
           <h3>Candidatos Pendentes</h3>
-          <p>Nome:</p>
-          <p>Idade:</p>
-          <p>Profissão:</p>
-          <p>País:</p>
-          <p>Texto da Candidadtura: </p>
+          {ListCandidate}
         </div>
-
+        <hr/>
         <div>
         <h3>Candidatos Aporvados</h3>
         <ul>

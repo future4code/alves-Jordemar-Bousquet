@@ -8,6 +8,7 @@ import axios from 'axios'
 
 const ApplicationFormPage = () => {
   const [trips,setTrips] = useState('')
+  const [tripId, setTripId] = useState('')
 
   const { form, onChange, cleanFields } = useForm({
     name: "",
@@ -25,9 +26,14 @@ const ApplicationFormPage = () => {
   },[])
 
   const onClickSend = (event) => {
-    event.preventDefault()
-    alert("Inscrição Realizada com Sucesso!!")
+    event.preventDefault();
+    ApplytoTrip();
+    
     cleanFields();
+  }
+
+  const onChangeTripId = (event) =>{
+    setTripId(event.target.value)
   }
 
   const getTrip = () =>{
@@ -43,6 +49,21 @@ const ApplicationFormPage = () => {
 
   }
 
+  const ApplytoTrip = () => {
+
+
+      axios.post(`${BASE_URL}/trips/${tripId}/apply`,form)
+      .then((resp) =>{
+        alert("Inscrição Realizada com Sucesso!!")
+      })
+      .catch((err) =>{
+
+        alert("Erro, Tente Novamente!!")
+      })
+
+  }
+
+
   const TripsOption = trips && trips.map((trip) =>{
         return <option key={trip.id} value={trip.id}>{trip.name}</option>
   })
@@ -53,7 +74,7 @@ const ApplicationFormPage = () => {
         <h3>Inscreva se para uma Viagem</h3>
         <div>
           <form onSubmit={onClickSend}>
-            <select>
+            <select onChange={onChangeTripId} >
               <option>Escolha uma Viagem</option>
               {TripsOption}
             </select>

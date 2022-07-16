@@ -35,10 +35,27 @@ const getTrips = () => {
 
 }
 
+const DeleteTrip = (id) =>{
+    axios.delete(`${BASE_URL}/trips/${id}`,{
+      headers:{
+        auth:token
+      }
+      
+    }).then((resp) =>{
+      alert("Viagem Deletada com Sucesso")
+    })
+      .catch((err) =>{
+        alert('Erro!!, Tente novamente')
+
+      })
+
+}
+
 const ListTrips = trips && trips.map((trip) =>{
   return <div key={trip.id} value={trip.id}>
     <p><b>Nome:</b>{trip.name}</p>
     <button onClick ={() => goToTripDetails(navigate, trip.id)}>Detalhes</button>
+    <button onClick ={() => DeleteTrip(trip.id)}>Delete</button>
     
     <hr/>
     

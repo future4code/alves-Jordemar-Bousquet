@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import { goBackHome } from '../../Routes/coordinator'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
+import Grid from '@material-ui/core/Grid';
+import{LoginContainer, InputField, ButtonStyled, ContainerBackButton} from './styledLogin'
+import Button from '@material-ui/core/Button';
 
 const LoginPage = () => {
 
-//const [email,setEmail] = useState('')
-//const [senha, setSenha] = useState('')
 
 const { form, onChange, cleanFields } = useForms({
     email:'',
@@ -17,13 +18,6 @@ const { form, onChange, cleanFields } = useForms({
 
 const navigate = useNavigate()
 
-// const getEmail = (event) => {
-//   setEmail(event.target.value)
-// }
-
-// const getSenha = (event) => {
-//   setSenha(event.target.value)
-// }
 
 const submitLogin = (event) => {
   event.preventDefault()
@@ -44,25 +38,38 @@ const submitLogin = (event) => {
 
   return (
     <div>
-      <form  onSubmit={submitLogin}>
-        <button onClick={() => goBackHome(navigate)}>Voltar</button>
+      <ContainerBackButton>
+      <Button onClick={() => goBackHome(navigate)}><img src="https://img.icons8.com/sf-black/64/000000/left.png"/></Button>
+      </ContainerBackButton>
+       <Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        alignItems="center"
+        >
+      
+      <form onSubmit={submitLogin}>
+      <LoginContainer>
         <h1>Login</h1>
-        <input 
+        <InputField 
         name ={'email'}
         placeholder="E-mail" 
         type ="email"
         value ={form.email}
         onChange={onChange}
         required/>
-        <input
+        <InputField
         name ={'password'}
         placeholder="Senha"
         type ="password"
         value ={form.password}
         onChange={onChange}
         required/>
-        <button >Entrar</button>
+        <ButtonStyled>Entrar</ButtonStyled>
+        </LoginContainer>
         </form>
+        
+        </Grid>
     </div>
   )
 }

@@ -11,15 +11,11 @@ export const ContainerLoginButton = styled.div`
         padding: 15px;
 `
 
-export const BackgroudImage = styled.div`
-        background-image: radial-gradient( circle 619.6px at 2.4% 11.3%,  rgba(254,241,241,1) 0%, rgba(7,7,7,1) 32.7% );
-       
-`
 
 export  const Titulo = styled.h1`
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
         font-family: 'Orbitron', sans-serif;
-        color:green;
+        color:black;
         font-size:270%;
 
 `
@@ -27,9 +23,25 @@ export  const Titulo = styled.h1`
 export  const SubTitulo = styled.h4`
  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
         font-family: 'Orbitron', sans-serif;
-        color:green;
+        color:black;
         font-size:130%;
 
 
 
 `
+
+export const ButtonStyled = styled.button`
+    border-radius: 9px;
+    background-color: #006600;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 180px;
+    cursor: pointer;
+    :hover{
+        color:white;
+        transform:scale(0.9);
+    }
+    margin: 5px;`

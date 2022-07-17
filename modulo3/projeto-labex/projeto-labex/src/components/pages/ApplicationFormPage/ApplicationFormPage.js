@@ -4,6 +4,9 @@ import { goBack } from '../../Routes/coordinator'
 import useForm from '../../hooks/useForms'
 import { countries } from '../../constants/coutry'
 import { BASE_URL } from '../../constants/urls'
+import Grid from '@material-ui/core/Grid';
+import {FormContainer,InputField,SelectFiled,ContainerBackButton, ButtonStyled} from './StyledApllicationForm'
+import Button from '@material-ui/core/Button';
 import axios from 'axios'
 
 const ApplicationFormPage = () => {
@@ -70,15 +73,26 @@ const ApplicationFormPage = () => {
 
   return (
     <div>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
+      <ContainerBackButton>
+      <Button onClick={() => goBack(navigate)}><img src="https://img.icons8.com/sf-black/64/000000/left.png"/></Button>
+      </ContainerBackButton>
+      <Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        alignItems="center"
+        >
+        
         <h3>Inscreva se para uma Viagem</h3>
-        <div>
-          <form onSubmit={onClickSend}>
-            <select onChange={onChangeTripId} >
+        
+          <FormContainer onSubmit={onClickSend}>
+            <form/>
+            <SelectFiled onChange={onChangeTripId} >
               <option>Escolha uma Viagem</option>
               {TripsOption}
-            </select>
-            <input
+            </SelectFiled>
+            <br/>
+            <InputField
             placeholder='Nome'
             value ={form.name}
             name ={"name"}
@@ -86,8 +100,8 @@ const ApplicationFormPage = () => {
             pattern={"^.{3,}$"}
             title={"O nome deve ter no mínimo 3 caracteres"}
             required/>
-
-            <input 
+            <br/>
+            <InputField 
             placeholder='Idade'
             value ={form.age}
             name ={"age"}
@@ -95,8 +109,9 @@ const ApplicationFormPage = () => {
             type="number"
             min={18}
             required/>
+            <br/>
 
-            <input 
+            <InputField 
             placeholder='Texto da Candidatura'
             value ={form.applicationText}
             name ={"applicationText"}
@@ -104,8 +119,8 @@ const ApplicationFormPage = () => {
             pattern={"^.{30,}$"}
             title={"O texto deve ter no mínimo 30 caracteres"}
             />
-
-            <input 
+            <br/>
+            <InputField 
             placeholder='Profissão'
             value ={form.profession}
             name ={"profession"}
@@ -113,20 +128,25 @@ const ApplicationFormPage = () => {
             pattern={"^.{10,}$"}
             title={"A profissão deve ter no mínimo 10 caracteres"}
             required/>
+            <br/>
 
-            <select placeholder = 'País'
+            <SelectFiled placeholder = 'País'
             value ={form.country}
             name ={"country"}
             onChange={onChange}
             required>
+            <br/>
               <option value={""} disabled>Escolha um País</option>
               {countries.map((country) => {
                         return <option value={country} key={country}>{country}</option>
                     })}
-            </select>
-            <button>Enviar</button>
-          </form>
-        </div>
+                    
+            </SelectFiled>
+            <br/>
+            <ButtonStyled>Enviar</ButtonStyled>
+          </FormContainer>
+          
+        </Grid>
         
     </div>
   )

@@ -4,6 +4,9 @@ import useForm from '../../hooks/useForms'
 import { goBack , goToLogout  } from '../../Routes/coordinator'
 import { BASE_URL } from '../../constants/urls'
 import { planets } from '../../constants/planets'
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import {FormContainer, InputField, SelectFiled,ButtonStyled,ContainerButton} from './StyledCreateTrip'
 import axios from 'axios'
 
 const CreateTripPage = () => {
@@ -44,19 +47,28 @@ const CreateTrip = () => {
 
   return (
     <div>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-        <button onClick={() => goToLogout(navigate)}>Logout</button>
-        <div>
+      <ContainerButton>
+      <Button onClick={() => goBack(navigate)}><img src="https://img.icons8.com/sf-black/64/000000/left.png"/></Button>
+        <Button onClick={() => goToLogout(navigate)}><img src="https://img.icons8.com/ios-filled/50/000000/logout-rounded-down.png"/></Button>
+        </ContainerButton>
+      <div>
+        <Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        alignItems="center"
+        >
         <h3>Criar Viagem</h3>
-        <form onSubmit = {onClickCreate}>
         
-        <input 
+        <FormContainer onSubmit = {onClickCreate}>
+        
+        <InputField 
         onChange ={onChange}
         value={form.name}
         name ={'name'}
         placeholder='Nome'
         required/>
-        <select
+        <SelectFiled
         placeholder={"Planeta"}
         name={"planet"}
         defaultValue={""}
@@ -66,8 +78,8 @@ const CreateTrip = () => {
           {planets.map((planet) => {
           return <option value={planet} key={planet}>{planet}</option>
           })}
-        </select>
-        <input 
+        </SelectFiled>
+        <InputField 
         type ='date'
         placeholder={"Data"}
         name={"date"}
@@ -75,7 +87,7 @@ const CreateTrip = () => {
         onChange={onChange}
         required/>
 
-        <input 
+        <InputField 
         placeholder='Descrição'
         name={"description"}
         value={form.description}
@@ -84,7 +96,7 @@ const CreateTrip = () => {
         title={"O nome deve ter no mínimo 30 caracteres"}
         required/>
 
-        <input 
+        <InputField 
         placeholder="Duração em dias"
         type="number"
         name={"durationInDays"}
@@ -93,8 +105,9 @@ const CreateTrip = () => {
         min={50}
         required />
 
-        <button type='submit'>Criar</button>
-        </form>
+        <ButtonStyled type='submit'>Criar</ButtonStyled>
+        </FormContainer>
+        </Grid>
         </div>
         
     </div>

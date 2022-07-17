@@ -2,6 +2,9 @@ import { useNavigate,useParams } from 'react-router-dom'
 import { useEffect,useState } from 'react'
 import { goBack, goToLogout } from '../../Routes/coordinator'
 import { BASE_URL } from '../../constants/urls'
+import {ContainerButton, Card} from './StyledTripDetail'
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import axios from 'axios'
 
 
@@ -79,16 +82,16 @@ const canditates = tripDetail.candidates
 
 
 const ListCandidate = canditates && canditates.map((canditate) => {
-  return <div key={canditate.id}>
+  return <Card key={canditate.id}>
     <p><b>Nome: </b>{canditate.name}</p>
     <p><b>Idade: </b>{canditate.age}</p>
     <p><b>Profissão: </b>{canditate.profession}</p>
     <p><b>País: </b>{canditate.country}</p>
     <p><b>Porque devemos escolher você?: </b>{canditate.applicationText}</p>
-    <button onClick={() => getDecideCandidate(canditate.id,true)}>Aprovar</button>
-    <button onClick={() => getDecideCandidate(canditate.id,false)}>Repovar</button>
+    <Button onClick={() => getDecideCandidate(canditate.id,true)}><img src="https://img.icons8.com/ios/50/000000/checked-checkbox--v1.png"/></Button>
+    <Button onClick={() => getDecideCandidate(canditate.id,false)}><img src="https://img.icons8.com/sf-black/64/000000/multiply.png"/></Button>
     
-    </div>
+    </Card>
 })
 
 const aproved = tripDetail.approved
@@ -105,9 +108,20 @@ const ListAproved = aproved && aproved.map((aprov)=>{
 
   return (
     <div>
-       <button onClick={() => goBack(navigate)}>Voltar</button>
-        <button onClick={() => goToLogout(navigate)}>Logout</button>
+      <ContainerButton>
+      <Button onClick={() => goBack(navigate)}><img src="https://img.icons8.com/sf-black/64/000000/left.png"/></Button>
+        <Button onClick={() => goToLogout(navigate)}><img src="https://img.icons8.com/ios-filled/50/000000/logout-rounded-down.png"/></Button>
+        </ContainerButton>
+
+<Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        alignItems="center"
+        >
+    
         <div>
+        
         <h3>{tripDetail.name}</h3>
         <p>Descrição: {tripDetail.description}</p>
         <p>Planeta: {tripDetail.planet}</p>
@@ -124,8 +138,9 @@ const ListAproved = aproved && aproved.map((aprov)=>{
         <h3>Candidatos Aporvados</h3>
         {ListAproved}
         
-
+        
         </div>
+      </Grid>
     </div>
   )
 }

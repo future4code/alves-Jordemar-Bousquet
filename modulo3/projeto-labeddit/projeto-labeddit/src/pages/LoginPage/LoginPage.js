@@ -1,18 +1,23 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToFeed, goToSignUp,goToPost } from '../../routes/coordinator'
+import { goToSignUp } from '../../routes/coordinator'
 import { Button } from "@material-ui/core"
+import { ScreenContainer, LogoImage, TitleLab, SubTitleLab } from './styled'
+import LoginForm from './LoginForm'
+import logo from '../../assets/logo.png'
+
 
 function LoginPage() {
-const navigate = useNavigate()
-
-
-
+  const navigate = useNavigate()
+ 
   return (
-    <div>
-    <h1>LoginPage</h1>
-    <Button variant="outlined" color="primary" onClick={() => goToPost(navigate)}>Post</Button>
-    </div>
+    <ScreenContainer>
+      <LogoImage src={logo} />
+      <TitleLab>LabEddit</TitleLab>
+      <SubTitleLab>O Projeto Rede Social da Labenu</SubTitleLab>
+      <LoginForm/>
+      <Button variant="text" color="primary" onClick={() => goToSignUp(navigate)}>Não possui uma conta? Cadastre-se</Button>
+    </ScreenContainer>
   )
 }
 

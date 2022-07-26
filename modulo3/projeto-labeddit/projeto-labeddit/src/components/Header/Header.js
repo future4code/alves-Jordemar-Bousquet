@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import {ToolbarStyled, Logo} from './styled'
-import logo from '../../img/logo.png'
+import logo from '../../assets/logo.png'
 
 
 export default function Header() {

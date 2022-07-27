@@ -5,10 +5,12 @@ import { Button } from "@material-ui/core"
 import { ScreenContainer, LogoImage, TitleLab, SubTitleLab } from './styled'
 import LoginForm from './LoginForm'
 import logo from '../../assets/logo.png'
+import useUnprotectedPage from '../../hooks/useUnprotectPage'
 
 
 function LoginPage() {
   const navigate = useNavigate()
+  useUnprotectedPage()
  
   return (
     <ScreenContainer>

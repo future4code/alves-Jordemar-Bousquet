@@ -4,23 +4,38 @@ import { Button } from "@material-ui/core"
 import { InputContainer } from './styled'
 import TextField from '@material-ui/core/TextField'
 import useForm from '../../hooks/useForm'
-import {Login} from  '../../services/request'
+import {SignUp} from '../../services/request'
 
-function LoginForm() {
-  const {form, onChange, cleanFields} = useForm({ email: '', password: '' })
+
+function SingUpForm() {
   const navigate = useNavigate()
+  const {form, onChange, cleanFields} = useForm({ username:'', email: '', password: '' })
   
 
 
   const OnSubmitForm = (event) => {
     event.preventDefault()
-    Login(form,cleanFields, navigate)
-  }
+    SignUp(form,cleanFields,navigate)
+    console.log(form)
 
+  }
 
   return (
       <InputContainer>
         <form onSubmit={OnSubmitForm}>
+
+        <TextField
+            name={'username'}
+            value={form.username}
+            onChange={onChange}
+            label={'Nome de Usuário'}
+            variant ={'outlined'}
+            fullWidth
+            margin={'normal'}
+            required
+            type ={'name'}
+          />
+
           <TextField
             name={'email'}
             value={form.email}
@@ -51,13 +66,11 @@ function LoginForm() {
           variant={"contained"}
           color="primary"
           margin={'normal'}
-          >Entrar
+          >Cadastrar
           </Button>
-
-
         </form>
       </InputContainer>
   )
 }
 
-export default LoginForm
+export default SingUpForm

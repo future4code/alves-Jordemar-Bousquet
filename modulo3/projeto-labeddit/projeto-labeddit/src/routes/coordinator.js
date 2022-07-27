@@ -14,3 +14,8 @@ export const goToFeed = (navigate) =>{
     navigate("/feed")
 
 }
+
+export const goToLogin = (navigate) =>{
+    navigate("/")
+
+}

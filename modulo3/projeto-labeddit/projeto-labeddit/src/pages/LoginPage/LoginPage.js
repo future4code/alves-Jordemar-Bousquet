@@ -8,7 +8,7 @@ import logo from '../../assets/logo.png'
 import useUnprotectedPage from '../../hooks/useUnprotectPage'
 
 
-function LoginPage() {
+function LoginPage({setRightButtonText}) {
   const navigate = useNavigate()
   useUnprotectedPage()
  
@@ -17,7 +17,7 @@ function LoginPage() {
       <LogoImage src={logo} />
       <TitleLab>LabEddit</TitleLab>
       <SubTitleLab>O Projeto Rede Social da Labenu</SubTitleLab>
-      <LoginForm/>
+      <LoginForm setRightButtonText={setRightButtonText}/>
       <Button variant="text" color="primary" onClick={() => goToSignUp(navigate)}>Não possui uma conta? Cadastre-se</Button>
     </ScreenContainer>
   )

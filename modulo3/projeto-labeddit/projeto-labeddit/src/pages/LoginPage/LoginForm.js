@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField'
 import useForm from '../../hooks/useForm'
 import {Login} from  '../../services/request'
 
-function LoginForm() {
+function LoginForm({setRightButtonText}) {
   const {form, onChange, cleanFields} = useForm({ email: '', password: '' })
   const navigate = useNavigate()
   
@@ -14,7 +14,7 @@ function LoginForm() {
 
   const OnSubmitForm = (event) => {
     event.preventDefault()
-    Login(form,cleanFields, navigate)
+    Login(form, cleanFields, navigate, setRightButtonText)
   }
 
 

@@ -4,14 +4,14 @@ import SingUpForm from './SingUpForm'
 import logo from '../../assets/logo.png'
 import useUnprotectedPage from '../../hooks/useUnprotectPage'
 
-function SignUpPage() {
+function SignUpPage({setRightButtonText}) {
   useUnprotectedPage()
 
   return (
     <ScreenContainer>
       <LogoImage src ={logo}/>
-      <TitleLab>Cadastre-se</TitleLab>
-      <SingUpForm/>
+      <TitleLab>Olá,Boas Vindas ao LabEddit ;)</TitleLab>
+      <SingUpForm setRightButtonText={setRightButtonText}/>
       </ScreenContainer>
   )
 }

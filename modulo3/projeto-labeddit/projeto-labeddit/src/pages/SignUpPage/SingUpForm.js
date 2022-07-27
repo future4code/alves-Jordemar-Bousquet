@@ -7,7 +7,7 @@ import useForm from '../../hooks/useForm'
 import {SignUp} from '../../services/request'
 
 
-function SingUpForm() {
+function SingUpForm({setRightButtonText}) {
   const navigate = useNavigate()
   const {form, onChange, cleanFields} = useForm({ username:'', email: '', password: '' })
   
@@ -15,7 +15,7 @@ function SingUpForm() {
 
   const OnSubmitForm = (event) => {
     event.preventDefault()
-    SignUp(form,cleanFields,navigate)
+    SignUp(form,cleanFields,navigate, setRightButtonText)
     console.log(form)
 
   }

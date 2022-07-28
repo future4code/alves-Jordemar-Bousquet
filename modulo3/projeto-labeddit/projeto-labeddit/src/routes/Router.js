@@ -13,7 +13,7 @@ function Router({setRightButtonText}) {
         <Routes>
             <Route index element ={<LoginPage setRightButtonText={setRightButtonText}/>}/>
             <Route path = "/signup" element ={<SignUpPage setRightButtonText={setRightButtonText}/>}/>
-            <Route path = "/post" element ={<PostPage/>}/>
+            <Route path = "/post/:id/:title/:body/:username" element ={<PostPage/>}/>
             <Route path = "/feed" element ={<FeedPage/>}/>
             <Route path = '*' element ={<ErrorPage/>}/>
         </Routes>

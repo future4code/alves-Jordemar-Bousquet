@@ -8,15 +8,17 @@ import {FeedContainer} from './styled'
 function FeedPage() {
   useProtectedPage()
   const post = useRequestData([],`${BASE_URL}/posts`)
-  console.log(post)
+
+
 
   const ListPost = post.map((posts) =>{
     return(
       <PostCard
         key={posts.id}
+        id = {posts.id}
         title ={posts.title}
         body ={posts.body}
-        user ={posts.username}
+        username ={posts.username}
       />
     )
 

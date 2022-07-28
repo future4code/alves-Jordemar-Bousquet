@@ -4,8 +4,8 @@ export const goToSignUp = (navigate) =>{
 
 }
 
-export const goToPost = (navigate) =>{
-    navigate("/post")
+export const goToPost = (navigate,id,title,body,username) =>{
+    navigate(`/post/${id}/${title}/${body}/${username}`)
 
 }
 

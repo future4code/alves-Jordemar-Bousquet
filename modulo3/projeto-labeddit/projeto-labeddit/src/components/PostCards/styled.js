@@ -7,19 +7,14 @@ import CardContent from '@material-ui/core/CardContent';
 export const StyledCard = styled(Card)`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding:25px;
-
-
+    margin:18px;
+    height:30vh;
+    border-radius:55px;
 `
 
 export const StyledCardContent = styled(CardContent)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding:25px;
-
+   font-family:'Times New Roman', Times, serif;
+   font-style:oblique;
 
 `

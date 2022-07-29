@@ -3,6 +3,7 @@ import useProtectedPage from '../../hooks/useProtectPage'
 import PostCard from '../../components/PostCards/PostCard'
 import {BASE_URL} from '../../constants/urls'
 import {useRequestData} from '../../hooks/useRequestData'
+import FeedForm from './FeedForm'
 import {FeedContainer} from './styled'
 
 function FeedPage() {
@@ -25,9 +26,12 @@ function FeedPage() {
   })
 
   return (
+    <div>
+    <FeedForm/>
     <FeedContainer>
       {ListPost}
     </FeedContainer>
+    </div>
   )
 }
 

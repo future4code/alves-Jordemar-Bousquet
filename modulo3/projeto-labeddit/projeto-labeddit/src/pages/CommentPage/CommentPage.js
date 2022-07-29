@@ -3,8 +3,10 @@ import useProtectedPage from '../../hooks/useProtectPage'
 import {useParams} from 'react-router-dom'
 import { useRequestData } from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/urls'
+import CommentCard from '../../components/CommentCard/CommentCard'
+import {PostContainer} from './styled'
 
-function PostPage() {
+function CommentPage() {
   useProtectedPage()
   const params = useParams()
   const comments = useRequestData([],`${BASE_URL}/posts/${params.id}/comments`)
@@ -12,7 +14,9 @@ function PostPage() {
   const listComments = comments && comments.map((comment) =>{
       return(
         <div key ={comment.id}>
-        <p>{comment.body}</p>
+        <CommentCard
+          comment ={comment.body}
+        />
         </div>
       )
 
@@ -21,12 +25,14 @@ function PostPage() {
 
   return (
     <div>
-      <h4> enviado por:{params.username}</h4>
-      <h1>{params.title}</h1>
+    <PostContainer>
+      <p>enviado por:{params.username}</p>
+      <h2>{params.title}</h2>
       <p>{params.body}</p>
-        {listComments}
+    </PostContainer>
+    {comments.length === 0? 'Não há Comentarios para esta postagem' : listComments }
     </div>
   )
 }
 
-export default PostPage
+export default CommentPage

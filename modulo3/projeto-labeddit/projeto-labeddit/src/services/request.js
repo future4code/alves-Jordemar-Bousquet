@@ -36,3 +36,18 @@ export const Login = (body, cleanFields, navigate, setRightButtonText) =>{
 
 
   }
+
+  export const createPost = (body, clear) =>{
+    axios.post(`${BASE_URL}/posts`, body,{
+        headers:{
+            Authorization:localStorage.getItem('token')
+        }
+    }).then((resp)=>{
+        alert('Postagem realizada com Sucesso')
+        clear()
+        document.location.reload(true)
+    }).catch((err)=>{
+        alert('Erro na Postagem:',err.data.response)
+    })
+
+}

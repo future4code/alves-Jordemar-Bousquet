@@ -12,8 +12,11 @@ export default function CommentCard(props) {
     
     <StyledCard >
       <StyledCardContent>
+      <Typography color="textSecondary" variant="subtitle2" gutterBottom>
+          Enviado por:{props.username}
+        </Typography>
         <Typography variant="p">
-          {props.comment}
+          {props.body}
         </Typography>
       </StyledCardContent>
       <CardActions>

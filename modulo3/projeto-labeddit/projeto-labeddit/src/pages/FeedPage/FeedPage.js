@@ -5,6 +5,7 @@ import {BASE_URL} from '../../constants/urls'
 import {useRequestData} from '../../hooks/useRequestData'
 import FeedForm from './FeedForm'
 import {FeedContainer} from './styled'
+import Loading from '../../components/Loading/Loading'
 
 function FeedPage() {
   useProtectedPage()
@@ -29,7 +30,7 @@ function FeedPage() {
     <div>
     <FeedForm/>
     <FeedContainer>
-      {ListPost}
+      {post? ListPost : <Loading/>}
     </FeedContainer>
     </div>
   )

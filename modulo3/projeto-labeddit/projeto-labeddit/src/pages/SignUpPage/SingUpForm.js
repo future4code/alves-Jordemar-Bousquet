@@ -1,22 +1,22 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from "@material-ui/core"
 import { InputContainer } from './styled'
 import TextField from '@material-ui/core/TextField'
 import useForm from '../../hooks/useForm'
 import {SignUp} from '../../services/request'
-
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 function SingUpForm({setRightButtonText}) {
   const navigate = useNavigate()
   const {form, onChange, cleanFields} = useForm({ username:'', email: '', password: '' })
+  const[isLoading,setIsLoading] = useState(false)
   
 
 
   const OnSubmitForm = (event) => {
     event.preventDefault()
-    SignUp(form,cleanFields,navigate, setRightButtonText)
-    console.log(form)
+    SignUp(form,cleanFields,navigate, setRightButtonText, setIsLoading)
 
   }
 
@@ -66,7 +66,7 @@ function SingUpForm({setRightButtonText}) {
           variant={"contained"}
           color="primary"
           margin={'normal'}
-          >Cadastrar
+          >{isLoading? <CircularProgress color ={'inherit'} size={24}/>:<>Cadastrar</>}
           </Button>
         </form>
       </InputContainer>

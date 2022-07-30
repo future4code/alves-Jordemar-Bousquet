@@ -1,21 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {InputContainer} from './styled'
 import TextField from '@material-ui/core/TextField'
 import { Button } from "@material-ui/core"
 import useForm from '../../hooks/useForm'
-import axios from 'axios'
-import { BASE_URL } from '../../constants/urls'
 import {createPost} from '../../services/request'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 function FeedForm() {
-const {form,onChange,clear} = useForm({title:'', body:''})
+const {form,onChange,cleanFields} = useForm({title:'', body:''})
+const[isLoading,setIsLoading] = useState(false)
 
 
 
 
 const onSubmitPost = (event) =>{
     event.preventDefault()
-    createPost(form,clear)
+    createPost(form,cleanFields,setIsLoading)
 }
 
 
@@ -49,7 +49,7 @@ const onSubmitPost = (event) =>{
           variant={"contained"}
           color="primary"
           margin={'normal'}
-          >Postar
+          >{isLoading? <CircularProgress color ={'inherit'} size={24}/>: <>Postar</>}
           </Button>
 
 

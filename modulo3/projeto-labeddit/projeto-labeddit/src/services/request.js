@@ -1,7 +1,7 @@
 import {BASE_URL} from '../constants/urls'
 import {goToFeed} from '../routes/coordinator'
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 
 export const Login = (body, cleanFields, navigate, setRightButtonText, setIsLoading) =>{
   setIsLoading(true)
@@ -16,10 +16,9 @@ export const Login = (body, cleanFields, navigate, setRightButtonText, setIsLoad
 
     })
     .catch((err) =>{
-      alert("Usuário ou Senha incorretos")
+      Swal.fire("Usuário ou Senha incorretos")
       setIsLoading(false)
     })
-
 
   }
 
@@ -33,12 +32,12 @@ export const Login = (body, cleanFields, navigate, setRightButtonText, setIsLoad
       setIsLoading(false)
       goToFeed(navigate)
       setRightButtonText('Logout')
-      alert('Cadastro Realizado com Sucesso')
+      Swal.fire("Cadastro realizado com sucesso!!");
       
 
     })
     .catch((err) =>{
-      alert("Erro,tente novamente")
+      Swal.fire("Erro,tente novamente")
       setIsLoading(false)
     })
 
@@ -52,12 +51,12 @@ export const Login = (body, cleanFields, navigate, setRightButtonText, setIsLoad
             Authorization:localStorage.getItem('token')
         }
     }).then((resp)=>{
-        alert('Postagem realizada com Sucesso')
+      Swal.fire("O post foi criado! com sucesso");
         cleanFields()
         setIsLoading(false)
         document.location.reload(true)
     }).catch((err)=>{
-        alert('Erro na Postagem:',err.data.response)
+      Swal.fire('Erro na Postagem:',err.data.response)
         setIsLoading(false)
     })
 
@@ -71,12 +70,12 @@ export const createComment = (id, body, cleanFields, setIsLoading) =>{
           Authorization:localStorage.getItem('token')
       }
   }).then((resp)=>{
-      alert('Comentário Adicionado')
+    Swal.fire("O comentário foi criado! com sucesso");
       cleanFields()
       setIsLoading(false)
       document.location.reload(true)
   }).catch((err)=>{
-      alert('Erro na Postagem:',err.data.response)
+    Swal.fire('Erro na Postagem:',err.data.response)
   })
 
 }

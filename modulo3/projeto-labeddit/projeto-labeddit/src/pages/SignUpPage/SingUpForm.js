@@ -58,6 +58,8 @@ function SingUpForm({setRightButtonText}) {
             margin={'normal'}
             required
             type ={'password'}
+            pattern={"[0-9a-zA-Z$*&@#]{8,}"}
+            title={"A senha deve ter no mínimo 8 caracteres"}
           />
 
           <Button

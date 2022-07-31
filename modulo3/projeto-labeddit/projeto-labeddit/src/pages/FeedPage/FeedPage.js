@@ -11,7 +11,7 @@ function FeedPage() {
   useProtectedPage()
   const post = useRequestData([],`${BASE_URL}/posts`)
 
-
+  console.log(post)
 
   const ListPost = post.map((posts) =>{
     return(
@@ -21,6 +21,8 @@ function FeedPage() {
         title ={posts.title}
         body ={posts.body}
         username ={posts.username}
+        commentCount ={posts.commentCount}
+        voteSum = {posts.voteSum}
       />
     )
 

@@ -5,7 +5,8 @@ import { goToListTrip, goToLogin } from '../../Routes/coordinator'
 import Button from '@material-ui/core/Button';
 import { theme } from '../../../Theme';
 import Grid from '@material-ui/core/Grid';
-import { GridContainer, ContainerLoginButton , Titulo , SubTitulo, ButtonStyled} from './StyledHomePage';
+import { GridContainer, ContainerLoginButton , Titulo , SubTitulo, ButtonStyled, Background} from './StyledHomePage';
+import galaxy from '../../Img/galaxy.jpg'
 
 
 
@@ -16,10 +17,11 @@ const navigate = useNavigate()
 
   return (
     <ThemeProvider theme={theme}>
-      
+    <div style={{backgroundImage:`url(${galaxy})`}}
+    fullWidith>
       
       <ContainerLoginButton>
-    <Button onClick={() => goToLogin(navigate)}><img src="https://img.icons8.com/ios-glyphs/60/000000/user-male-circle.png"/></Button>
+    <Button onClick={() => goToLogin(navigate)} style ={{color:'white'}}><img src="https://img.icons8.com/ios-filled/50/FFFFFF/user.png"/> <br/>ADM Login</Button>
       </ContainerLoginButton>
       <GridContainer>
        <Grid
@@ -35,7 +37,7 @@ const navigate = useNavigate()
         <ButtonStyled onClick={() => goToListTrip(navigate)}>Ver Viagens</ButtonStyled>
         </Grid>
         </GridContainer>
-        
+        </div>
     </ThemeProvider>
   )
 }

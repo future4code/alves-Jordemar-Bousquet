@@ -1,4 +1,3 @@
-
 const tarefas = ['Lavar a Louça']
 
 novaTarefa = process.argv[2]

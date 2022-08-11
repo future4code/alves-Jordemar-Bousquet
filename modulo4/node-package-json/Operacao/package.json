@@ -1,0 +1,11 @@
+{
+  "name": "operacao",
+  "version": "1.0.0",
+  "description": "'Realiza Operações Matemática\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Jordemar Bousquet",
+  "license": "ISC"
+}

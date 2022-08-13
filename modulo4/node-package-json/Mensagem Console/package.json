@@ -1,0 +1,11 @@
+{
+  "name": "mensagem-console",
+  "version": "1.0.0",
+  "description": "'Imprime Mensagem no console'",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Jordemar Bousquet",
+  "license": "ISC"
+}

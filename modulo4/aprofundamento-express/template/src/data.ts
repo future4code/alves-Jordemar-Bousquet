@@ -7,7 +7,7 @@ type Avazeres ={
 }
 
 //ex2//
-export const avazeres:Avazeres[] = [
+export const afazeres:Avazeres[] = [
     {
       "userId": 1,
       "id": 1,

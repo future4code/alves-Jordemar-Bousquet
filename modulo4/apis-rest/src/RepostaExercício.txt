@@ -1,0 +1,6 @@
+Exercício 1 
+a. Qual método HTTP você deve utilizar para isso?
+Reposta : /users
+b. Qual método HTTP você deve utilizar para isso?
+Reposta: Entidade de Usuários
+

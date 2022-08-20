@@ -1,20 +1,18 @@
-type Extrado ={
+export type Trasacao ={
     valor:number,
-    data:number,
+    data:Date,
     descricao:string,
 }
 
 
-type Clientes ={
+export type Conta ={
     nome:string,
-    cpf:number,
-    nascmiento:number,
+    cpf:string,
+    nascimento:Date,
     saldo:number,
-    extrato:Extrado[]
+    extrato:Trasacao[]
 }
 
 
 
-const clientes=[{
-
-}]
+export const contas:Conta[]=[]

@@ -6,6 +6,7 @@ export type Trasacao ={
 
 
 export type Conta ={
+    id:number,
     nome:string,
     cpf:string,
     nascimento:Date,

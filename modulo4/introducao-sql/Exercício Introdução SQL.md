@@ -61,3 +61,84 @@ d.
 SELECT * FROM introSQL_Actor WHERE
 (name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%")
 AND salary BETWEEN 350000 AND 900000;
+
+###Exercíio5
+
+a.
+A tabela em si tera um id como identificador e chave primária que será uma string com até 255 caracteres, um titlo com o mesmo tipo porém não pode ser nulo e tem que ser único, uma sinópise do tipo texto e não pode ser nula, uma data de lançamento que também não pode ser nula e uma nota que é um número inteiro e tabém não nulo
+
+b.
+INSERT INTO Movie (id, title, synopsis, release_Date, rating) VALUES 
+(
+"001",
+"Se Eu Fosse Você",
+"Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. 
+Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+"2006/01/06",
+7);
+
+c.
+INSERT INTO Movie (id, title, synopsis, release_Date, rating) VALUES 
+(
+"002",
+"Doce de mãe",
+"Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. 
+A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, 
+empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+"2012/12/27",
+10);
+
+d.
+INSERT INTO Movie (id, title, synopsis, release_Date, rating) VALUES 
+(
+"003",
+"Dona Flor e Seus Dois Maridos",
+"Dona Flor é uma sedutora professora de culinária casada com Vadinho, 
+que só quer saber de farras e jogatina nas boates. 
+A vida de abusos acaba por acarretar sua morte precoce.",
+"2017/11/02",
+8);
+
+e.
+INSERT INTO Movie (id, title, synopsis, release_date, rating) 
+VALUES(
+    "004",
+    "Deus é Brasileiro",
+    "Cansado da humanidade, Deus resolve tirar férias para descansar e procura alguém no Brasil capaz de substituí-lo. 
+    O borracheiro e pescador Taoca e a solitária Madá deverão guiá-lo até Quincas das Mulas, 
+    candidato de Deus a santo.",
+    "2003-01-31",
+    9
+)
+
+###Exercício6
+
+a.
+SELECT id, title, rating FROM Movie WHERE id = "003";
+
+b.
+SELECT * FROM Movie WHERE title = "Deus é Brasileiro";
+
+c.
+SELECT id, title, synopsis FROM Movie WHERE rating >= 7;
+
+###Exercício7
+
+a.
+SELECT * FROM Movie
+WHERE title LIKE "%vida%";
+
+b.
+SELECT * FROM Movie
+WHERE title LIKE "%Dona%" OR
+      synopsis LIKE "%Dona%";
+
+c.
+SELECT * FROM Movie
+WHERE release_date < "2022-08-22";
+
+d.
+SELECT * FROM Movie
+WHERE release_date < "2022-08-22" AND 
+      (title LIKE "%Deus%" OR
+      synopsis LIKE "%Deus%") AND rating > 7;

@@ -1,0 +1,13 @@
+GET http://localhost:3003/user
+
+###
+GET http://localhost:3003/user/fullsearch
+
+###
+GET http://localhost:3003/user/search
+
+###
+GET http://localhost:3003/user/page
+
+### 
+GET http://localhost:3003/users/:type"

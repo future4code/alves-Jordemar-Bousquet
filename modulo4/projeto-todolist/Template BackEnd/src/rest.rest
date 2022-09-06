@@ -1,0 +1,35 @@
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Jordemar",
+    "nickname":"Jord",
+    "email": "jord@gmail.com.br"
+}
+
+###
+GET http://localhost:3003/user/16614481567440.9675013488101154
+
+###
+POST http://localhost:3003/user/edit/16614481567440.9675013488101154
+Content-Type: application/json
+
+{
+  "name":"Jordemar Bousquet"
+    
+}
+
+###
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+{
+  "title":"Previnir o bug do milenio",
+  "description":"vai quevrar tudo, vamos arrumar isso ai",
+  "status":"a fazer",
+  "deadline":"31/12/2999",
+  "authorId":"16614481567440.9675013488101154"
+}
+
+###
+GET http://localhost:3003/task/16614481567440.9675013488101154

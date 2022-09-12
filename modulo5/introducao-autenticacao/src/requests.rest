@@ -1,0 +1,24 @@
+GET http://localhost:3000//user/profile
+
+###
+
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+
+{
+	"email": "email do usuário",
+	"password": "senha do usuário"
+}
+
+
+
+###
+POST http://localhost:3000//user/login
+Content-Type: application/json
+
+
+{
+	"email": "email do usuário",
+	"password": "senha do usuário"
+}

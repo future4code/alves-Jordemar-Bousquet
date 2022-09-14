@@ -1,0 +1,36 @@
+GET http://localhost:3003/user
+
+###
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name":"beltrano",
+    "email":"beltrano@gmail.com",
+    "password":"123beltrano"
+}
+###
+
+GET http://localhost:3003/products
+
+
+###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name":"Celular",
+    "price":"2500.00",
+    "image_url":"https://i.picsum.photos/id/160/3200/2119.jpg?hmac=cz68HnnDt3XttIwIFu5ymcvkCp-YbkEBAM-Zgq-4DHE"
+}
+
+###
+
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId":"1662133287371",
+    "productId":"1662136674850",
+    "quantity":10
+}

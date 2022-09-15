@@ -7,7 +7,7 @@ import { AddressInfo } from "net";
 dotenv.config()
 
 
-const app: Express = express();
+export const app: Express = express();
 
 app.use(express.json());
 

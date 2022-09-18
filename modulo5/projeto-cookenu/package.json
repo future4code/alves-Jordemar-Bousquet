@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev-start": "clear && ts-node-dev ./src/index.ts",
-    "start": "clear && tsc && node ./build/index.js"
+    "start": "clear && tsc && node ./build/index.js",
+    "migrations": "clear && tsc && node ./build/migrations/index.js"
   },
   "author": "jordemar-bousquet",
   "license": "ISC",

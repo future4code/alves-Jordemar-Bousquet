@@ -1,0 +1,41 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name":"Charlie",
+    "email":"charlie@gmail.com",
+    "password":"1234554"
+}
+
+###
+# @name login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email":"bob@gmail.com",
+    "password":"1234"
+}
+
+### 
+# @name getProfile
+GET http://localhost:3003/users/profile
+Authorization:{{login.response.body.token}}
+
+###
+GET http://localhost:3003/users/{{getProfile.response.body.id}}/profile
+Authorization:{{login.response.body.token}}
+
+###
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization:{{login.response.body.token}}
+
+{
+    "title":"Bolo de Murango",
+    "descripition":"Bolo de Murango do pica pau"
+}
+
+###
+GET http://localhost:3003/recipe/76e58407-ac83-4e41-a9b3-d18fdb5f24c9
+Authorization:{{login.response.body.token}}

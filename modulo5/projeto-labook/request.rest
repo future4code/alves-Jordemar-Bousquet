@@ -1,5 +1,4 @@
-POST http://localhost:3003/signup
-
+POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
@@ -8,3 +7,27 @@ Content-Type: application/json
     "password":"kakaroto"
     
 }
+
+###
+# @name login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email":"goku@gmail.com",
+    "password":"kakaroto"
+    
+}
+
+###
+POST http://localhost:3003/post/create
+Authorization:{{login.response.body.token}}
+Content-Type: application/json
+
+{
+    "content":"Genki-Dama"
+}
+
+###
+GET http://localhost:3003/post/
+Authorization:{{login.response.body.token}}

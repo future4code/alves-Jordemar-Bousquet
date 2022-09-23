@@ -1,31 +1,19 @@
 import { Request, Response } from "express";
 import connection from "../connection";
 import { generateToken } from "../services/authenticator";
-import { generateHash } from "../services/hashManager";
-import generateId from "../services/idGenerator";
+import { compreHash } from "../services/hashManager";
 import { UserTableName } from "../types";
 
-export default async function signup(
+export default async function login(
     req: Request,
     res: Response
 ): Promise<void> {
-
     try {
+        const { email, password } = req.body
 
-        const { name, email, password } = req.body
-
-        const id: string = generateId()
-        const cypherPassword = generateHash(password)
-
-
-        if (!name || !email || !password) {
+        if (!email || !password) {
             res.statusCode = 422
-            throw new Error("Invalid input. Name, email and password are required")
-        }
-
-        if (name.length < 3) {
-            res.statusCode = 422
-            throw new Error("Invalid name. Name must have at least 3 characters")
+            throw new Error("Invalid input.Email and password are required")
         }
 
         if (password.length < 6) {
@@ -41,22 +29,26 @@ export default async function signup(
         const [user] = await connection(UserTableName)
             .where({ email })
 
-        if (user) {
+        if (!user) {
             res.statusCode = 409
-            throw new Error("Invalid email. This email address is already in use")
+            throw new Error("Invalid Email")
         }
 
-        const token = generateToken({ id })
+        const passwordIsCorrect: boolean = compreHash(password, user?.password || '')
 
+        if (!passwordIsCorrect) {
+            res.statusCode = 401
+            throw new Error('Invalid Password')
+        }
 
-        await connection(UserTableName)
-            .insert({ id, name, email, password: cypherPassword })
-
+        const token = generateToken({ id: user.id })
 
         res.status(200).send({ token })
+
 
 
     } catch (error: any) {
         res.status(500).send(error.message)
     }
+
 }

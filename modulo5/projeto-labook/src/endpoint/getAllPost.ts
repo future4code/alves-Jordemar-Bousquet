@@ -17,7 +17,7 @@ export default async function getAllPost(
         }
 
         const [post] = await connection.raw(`
-            SELECT content FROM ${PostTableName}
+            SELECT id, content FROM ${PostTableName}
         `)
           
         res.status(200).send({post})

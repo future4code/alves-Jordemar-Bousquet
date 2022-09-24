@@ -2,9 +2,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name":"Goku",
-    "email":"goku@gmail.com",
-    "password":"kakaroto"
+    "name":"Vegeta",
+    "email":"vegeta@gmail.com",
+    "password":"kakarotoinseto"
     
 }
 
@@ -14,8 +14,8 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email":"goku@gmail.com",
-    "password":"kakaroto"
+    "email":"vegeta@gmail.com",
+    "password":"kakarotoinseto"
     
 }
 
@@ -25,9 +25,13 @@ Authorization:{{login.response.body.token}}
 Content-Type: application/json
 
 {
-    "content":"Genki-Dama"
+    "content":"Pincipe dos sayajins"
 }
 
 ###
 GET http://localhost:3003/post/
+Authorization:{{login.response.body.token}}
+
+###
+DELETE http://localhost:3003/post/90f995ca-047a-47fb-8c6a-7d816b3f739c
 Authorization:{{login.response.body.token}}

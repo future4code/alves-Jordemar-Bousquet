@@ -1,18 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import {goToMainPage} from '../Routes/Coordinator'
+import {Container} from './DetailStyled'
 
 const DetailPage = () => {
 
 const navigate = useNavigate()
 
-const goToMainPage = () =>{
-  navigate('/')
-}
 
   return (
     <div>
+      <Container>
       <h2>DetailPage</h2>
-      <button onClick={goToMainPage}>Pagina Principal</button>
+      </Container>
+      <button onClick={() => goToMainPage(navigate)}>Pagina Principal</button>
 
     </div>
   )

@@ -1,10 +1,16 @@
 import React from 'react'
-import Router from './Routes/Router'
+import Router from './components/Routes/Router'
+
 
 const App = () => {
   return (
     <div>
-      <h1>olá,mundo!!</h1>
+      <style Jsx Global>{`
+      Body {
+        Margin: 0px;
+        Padding: 0px;
+      }
+    `}</style>
       <Router/>
     </div>
   )

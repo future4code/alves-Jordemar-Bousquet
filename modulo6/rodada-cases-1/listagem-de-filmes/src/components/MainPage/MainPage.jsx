@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {goToDetailpage} from '../Routes/Coordinator'
-import {Container, MainTitle} from './MainStyled'
+import {Container, MainTitle, MovieCard, MoviePoster} from './MainStyled'
 import { BASE_URL, IMAGE_URL } from '../constants/urls'
 import { APIKEY } from '../constants/key'
 
@@ -38,9 +38,10 @@ const MovieTitle = MovieList && MovieList.map((movie) =>{
   const poster = movie.poster_path
 
     return <div>
-      <h4>{movie.title}</h4>
-      <img src = {`${IMAGE_URL}${poster}`} style = {{width:"250px"}}/>
-      <p>{movie.release_date}</p>
+      <MoviePoster src = {`${IMAGE_URL}${poster}`} style = {{width:"210px"}} onClick={() => goToDetailpage(navigate)}/>
+      <p><strong>{movie.title}</strong></p>
+      <p style = {{color:"gray"}}>{movie.release_date}</p>
+    
     </div>
 })
 
@@ -50,10 +51,10 @@ const MovieTitle = MovieList && MovieList.map((movie) =>{
     <Container>
       <MainTitle>Milhões de filmes,séries e pessoas<br/>para descobrir. Explore já.</MainTitle>
     </Container>
-    <button onClick={() => goToDetailpage(navigate)}>Detalhes</button>
-    <h1>
+    <button onClick={() => goToDetailpage(navigate)}></button>
+    <MovieCard>
       {MovieTitle}
-    </h1>
+    </MovieCard>
     </div>
     
   )

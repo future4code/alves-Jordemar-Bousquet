@@ -19,4 +19,36 @@ export const MainTitle = styled.h1`
   height: 70px;
 
 `
+export const MovieCard = styled.div`
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 15px 55px 0px 55px;
+  
+` 
 
+export const MoviePoster = styled.img`
+  cursor:pointer;
+  :hover{
+    opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+`

@@ -2,9 +2,9 @@ import React , {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {goToDetailpage} from '../Routes/Coordinator'
 import {Container, MainTitle, MovieCard, MoviePoster} from './MainStyled'
+import PaginationRounded from '../../Pagination/Pagination'
 import { BASE_URL, IMAGE_URL } from '../constants/urls'
 import { APIKEY } from '../constants/key'
-
 import axios from 'axios'
 
 const MainPage = () => {
@@ -36,12 +36,13 @@ console.log(MovieList)
 const MovieTitle = MovieList && MovieList.map((movie) =>{
 
   const poster = movie.poster_path
+  const id = movie.id
 
-    return <div>
-      <MoviePoster src = {`${IMAGE_URL}${poster}`} style = {{width:"210px"}} onClick={() => goToDetailpage(navigate)}/>
+
+    return <div key= {id} value = {id}>
+      <MoviePoster src = {`${IMAGE_URL}${poster}`} style = {{width:"210px"}} onClick={() => goToDetailpage(navigate,id)}/>
       <p><strong>{movie.title}</strong></p>
       <p style = {{color:"gray"}}>{movie.release_date}</p>
-    
     </div>
 })
 
@@ -54,6 +55,7 @@ const MovieTitle = MovieList && MovieList.map((movie) =>{
     <button onClick={() => goToDetailpage(navigate)}></button>
     <MovieCard>
       {MovieTitle}
+      <PaginationRounded/>
     </MovieCard>
     </div>
     

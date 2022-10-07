@@ -1,5 +1,5 @@
-export const goToDetailpage = (navigate) =>{
-    navigate('/detail')
+export const goToDetailpage = (navigate,id) =>{
+    navigate(`/detail/${id}`)
 }
 
 export const goToMainPage = (navigate) =>{

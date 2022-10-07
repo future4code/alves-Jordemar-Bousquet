@@ -11,7 +11,7 @@ const Router = () => {
     <Header/>
     <Routes>
         <Route index element ={<MainPage/>} />
-        <Route path = "detail" element ={<DetailPage/>}/>
+        <Route path = "detail/:id" element ={<DetailPage/>}/>
     </Routes>
     </BrowserRouter>
   )

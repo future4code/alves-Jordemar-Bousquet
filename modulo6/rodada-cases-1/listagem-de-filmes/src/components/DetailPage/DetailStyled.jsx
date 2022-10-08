@@ -39,7 +39,10 @@ export const ImgPoster = styled.img`
 
 export const CastImage = styled.img`
     margin-top: 55px;
-    padding: 8px;
+    margin: 8px;
+    border: 1px solid black;
+    box-shadow:7px 7px 5px rgba(50, 50, 50, 0.77);
+
    
 `
 export const CastContainer = styled.div`
@@ -50,5 +53,5 @@ export const CastContainer = styled.div`
 
 export const CastTitle = styled.h2`
     padding-left: 85px;
-    padding-top:  55px;
+    padding-top:  85px;
 `

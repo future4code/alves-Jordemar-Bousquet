@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { goToMainPage } from '../Routes/Coordinator'
 import { Container, Title, GenderList, Sinopse, ImgPoster,CastContainer, CastImage, CastTitle} from './DetailStyled'
-import { BASE_URL, IMAGE_URL } from '../constants/urls'
+
+import { BASE_URL, IMAGE_URL,YOUTUBE_URL} from '../constants/urls'
 import { APIKEY } from '../constants/key'
 import axios from 'axios'
 
@@ -13,11 +14,13 @@ const DetailPage = () => {
   const params = useParams()
   const [Movie, setMovie] = useState('')
   const [Cast, setCast] = useState('')
+  const [Trailer, setTrailer] = useState('')
 
 
   useEffect(() => {
     getMovieById();
-    getCastbyd();
+    getCastbyId();
+    getTrailerbyId();
   }, [])
 
 
@@ -34,7 +37,7 @@ const DetailPage = () => {
 
   }
 
-const getCastbyd = () => {
+const getCastbyId = () => {
   const url = `${BASE_URL}/movie/${params.id}/credits${APIKEY}&language=pt-BR`
 
   axios.get(url)
@@ -46,9 +49,17 @@ const getCastbyd = () => {
   })
 }
 
+const getTrailerbyId = () => {
+  const url = `${BASE_URL}/movie/${params.id}/videos${APIKEY}&language=pt-BR`
 
-console.log(Cast)
-
+  axios.get(url)
+  .then((resp) => {
+    setTrailer(resp.data.results[0])
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+}
 
   const GenresMovie = Movie.genres && Movie.genres.map((gen) => {
     return <p>
@@ -63,7 +74,6 @@ console.log(Cast)
     <p>{info.character}</p>
     </div>
   })
-
 
   return (
     <div>
@@ -85,6 +95,10 @@ console.log(Cast)
       <CastContainer>
       {CanstInfo}
       </CastContainer>
+      <div>
+      <h1>{Trailer? Trailer.name : "Não há Trailer disponível"}</h1>
+      <iframe width="680" height="360" src ={`${YOUTUBE_URL}${Trailer.key}`}  allowfull/>
+      </div>
       <button onClick={() => goToMainPage(navigate)}>Pagina Principal</button>
     </div>
   )

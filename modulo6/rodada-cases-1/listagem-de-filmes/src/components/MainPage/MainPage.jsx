@@ -19,7 +19,7 @@ useEffect(() =>{
 
 
 const getMoviePopular = () =>{
-  const url = `${BASE_URL}/movie/popular${APIKEY}`
+  const url = `${BASE_URL}/movie/popular${APIKEY}&language=pt-BR`
 
   axios.get(url)
   .then((resp)=>{
@@ -30,8 +30,6 @@ const getMoviePopular = () =>{
   })
 
 }
-
-console.log(MovieList)
 
 const MovieTitle = MovieList && MovieList.map((movie) =>{
 

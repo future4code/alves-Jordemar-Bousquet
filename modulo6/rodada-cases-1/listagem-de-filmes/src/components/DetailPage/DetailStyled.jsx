@@ -49,9 +49,36 @@ export const CastContainer = styled.div`
     display: flex;
     flex-direction: row;
     margin-left: 55px;
+    width:100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
 `
 
 export const CastTitle = styled.h2`
     padding-left: 85px;
     padding-top:  85px;
+`
+
+export const TrailerContainer = styled.div`
+    margin-left: 55px;
+`
+
+export const RecommendationsContainer = styled.div`
+  display:flex;
+  flex-direction: row;
+  margin-left: 55px;
+  width:100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+`
+
+export const RecommendationsImage = styled.img`
+    padding: 5px;
+    
+    `
+
+export const RecommendationsTitle = styled.h3`
+    margin-left: 55px;
+
 `

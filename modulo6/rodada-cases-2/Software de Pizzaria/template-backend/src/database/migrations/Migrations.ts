@@ -1,4 +1,5 @@
 import { BaseDatabase } from "../BaseDatabase"
+import { OrderDatabase } from "../OrderDatabase"
 import { PizzaDatabase } from "../PizzaDatabase"
 
 
@@ -28,35 +29,34 @@ class Migrations extends BaseDatabase {
 
     createTables = async () => {
         await BaseDatabase.connection.raw(`
-
-DROP TABLE IF EXISTS Amb_Orders;
-DROP TABLE IF EXISTS Amb_Order_Items;
+DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDER_ITEMS};
+DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDERS};
 DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZA_INGREDIENTS};
 DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_INGREDIENTS};
 DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS};
 
 
-CREATE TABLE IF NOT EXISTS Amb_Pizzas (
+CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZAS} (
 	name VARCHAR(255) PRIMARY KEY,
     price DECIMAL(3,2) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Amb_Ingredients (
+CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_INGREDIENTS} (
 	name VARCHAR(255) PRIMARY KEY
 );
 
-CREATE TABLE IF NOT EXISTS Amb_Pizza_Ingredients (
+CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZA_INGREDIENTS} (
 	pizza_name VARCHAR(255) NOT NULL,
     ingredients_name VARCHAR(255) NOT NULL,
     FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
     FOREIGN KEY (ingredients_name) REFERENCES Amb_Ingredients (name)
 );
 
-CREATE TABLE IF NOT EXISTS Amb_Orders (
+CREATE TABLE IF NOT EXISTS ${OrderDatabase.TABLE_ORDERS} (
 	id VARCHAR(255) PRIMARY KEY
 );
 
-CREATE TABLE IF NOT EXISTS Amb_Order_Items (
+CREATE TABLE IF NOT EXISTS ${OrderDatabase.TABLE_ORDER_ITEMS} (
 	id VARCHAR(255) PRIMARY KEY,
     pizza_name VARCHAR(255) NOT NULL,
     quantity TINYINT,

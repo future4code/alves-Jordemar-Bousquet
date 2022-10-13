@@ -1,15 +1,15 @@
 import { PizzaDatabase } from "../database/PizzaDatabase"
-import { IGetPizzasOutPutDTO, Pizza } from "../models/Pizza"
+import { IGetPizzasOutputDTO, Pizza } from "../models/Pizza"
 import { IdGenerator } from "../services/IdGenerator"
 
 export class PizzaBusiness {
     constructor(
         private pizzaDatabase: PizzaDatabase,
-        private idGenerator: IdGenerator,
+        private idGenerator: IdGenerator
     ) {}
 
-    public getPizzas = async (): Promise<IGetPizzasOutPutDTO> => {
-        
+    public getPizzas = async (): Promise<IGetPizzasOutputDTO> => {
+
         const pizzasDB = await this.pizzaDatabase.getPizzas()
 
         const pizzas: Pizza[] = []
@@ -21,25 +21,51 @@ export class PizzaBusiness {
                 []
             )
             
-            const ingredients = await this.pizzaDatabase.getIngredients(pizzaDB.name)
-
+            const ingredients = await 
+                this.pizzaDatabase.getIngredients(pizzaDB.name)
+            
             pizza.setIngredients(ingredients)
 
             pizzas.push(pizza)
         }
 
-        const response: IGetPizzasOutPutDTO = {
-            message:"Pizzas retornadas com sucesso",
+        const response: IGetPizzasOutputDTO = {
+            message: "Pizzas retornadas com sucesso",
             pizzas: pizzas.map((pizza) => ({
-                name:pizza.getName(),
-                price:pizza.getPrice(),
-                ingredients:pizza.getIngredients(),
-
+                name: pizza.getName(),
+                price: pizza.getPrice(),
+                ingredients: pizza.getIngredients()
             }))
         }
 
         return response
     }
 
-    
+    public getPizzasV2 = async () => {
+
+        const rawPizzasFormatted = await this.pizzaDatabase.getPizzasFormatted()
+
+        const pizzas: any = []
+
+        for (let rawPizza of rawPizzasFormatted) {
+            const pizzaAlreadyOnArray = pizzas
+                .find((pizza: any) => pizza.name === rawPizza.name)
+
+            if (pizzaAlreadyOnArray) {
+                pizzaAlreadyOnArray.ingredients.push(rawPizza.ingredient_name)
+            } else {
+                const pizza = {
+                    name: rawPizza.name,
+                    price: rawPizza.price,
+                    ingredients: [ rawPizza.ingredient_name ]
+                }
+
+                pizzas.push(pizza)
+            }
+        }
+
+        return {
+            pizzas
+        }
+    }
 }

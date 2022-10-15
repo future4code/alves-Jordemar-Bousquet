@@ -12,7 +12,7 @@ body,
     width:100%
 }
 
-ul {
+ul,li {
     list-style-type:none;
 }
 

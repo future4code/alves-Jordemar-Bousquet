@@ -8,17 +8,12 @@ import styled from 'styled-components'
 export const StyledSection = styled.section`
     ul{
         display:flex;
-    }
-
-
-        
+    }  
     
 `
+export const PizzaMenu = (props) => {
 
-
-
-
-export const PizzaMenuPage = () => {
+  const {addToCard} = props
 
     const [pizzas, setPizzas] = useState([])
 
@@ -37,7 +32,11 @@ export const PizzaMenuPage = () => {
     <ul>
       {pizzas.map((pizza) => {
         return (
-         <PizzaCard pizza ={pizza} key ={pizza.name}/>
+         <PizzaCard 
+         pizza ={pizza} 
+         key ={pizza.name}
+         addToCard = {addToCard}
+         />
         )
       })}
     </ul>

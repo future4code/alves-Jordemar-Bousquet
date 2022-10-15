@@ -17,10 +17,9 @@ export const ContainerLI = styled.li `
 
 
 `
-
 export const PizzaCard = (props) => {
 
-    const { pizza } = props
+    const { pizza, addToCard } = props
 
     return (
         <ContainerLI>
@@ -33,7 +32,7 @@ export const PizzaCard = (props) => {
                     )
                 })}
             </p>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={() => addToCard(pizza)}>Adicionar ao carrinho</button>
         </ContainerLI>
     )
 }

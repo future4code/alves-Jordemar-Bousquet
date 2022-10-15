@@ -8,7 +8,7 @@ export const ContainerLi = styled.li `
 `
 
 const OrderIntemCards = (props) => {
-  const {pizza} = props
+  const {pizza, removeFromCart} = props
 
 
   return (
@@ -18,7 +18,7 @@ const OrderIntemCards = (props) => {
         "eu-us",
         {style:"currency", currency:"USD"}
       )} x {pizza.quantity}</h3>
-        <button>Remover Item</button>
+        <button onClick ={() => removeFromCart(pizza)}>Remover Item</button>
     </ContainerLi>
   )
 }

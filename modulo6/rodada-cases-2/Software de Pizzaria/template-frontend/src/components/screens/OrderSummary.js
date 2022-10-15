@@ -3,7 +3,7 @@ import OrderIntemCards from '../OrderIntemCards'
 import styled from 'styled-components'
 
 
-export const ContainerSection = styled.section `
+export const ContainerSection = styled.section`
   width: 30em;
   border:1px solid black;
 
@@ -18,30 +18,26 @@ export const ContainerSection = styled.section `
 
 const OrderSummary = (props) => {
 
-    const { cart } = props
-
-    const calculateTotal = () =>{
-      const total = cart.reduce((acc,item) => acc + item.price * item.quantity, 0)
-
-      return total.toLocaleString(
-        "eu-us",
-        {style:"currency", currency:"USD"}
-      )
-
-    }
+  const { cart, removeFromCart, total, confirmOrder } = props
 
 
 
   return (
     <ContainerSection>
-        <h1>Resumo do pedido</h1>
+      <h1>Resumo do pedido</h1>
 
-        {cart.map((pizza) =>{
-          return <OrderIntemCards key ={pizza.name} pizza ={pizza} />
-        })}
+      {cart.map((pizza) => {
+        return <OrderIntemCards key={pizza.name}
+          pizza={pizza}
+          removeFromCart={removeFromCart} />
+      })}
 
-        <h2>Total: {calculateTotal()}</h2>
-        <button>Confirmar Pedido</button>
+      <h2>Total:{
+        total.toLocaleString(
+          "eu-us",
+          { style: "currency", currency: "USD" }
+        )}</h2>
+      <button onClick={confirmOrder}>Confirmar Pedido</button>
     </ContainerSection>
   )
 }

@@ -65,7 +65,7 @@ export class Order {
     }
 
     public removeOrderItem = (idToRemove: string) => {
-        this.orderItems.filter(orderItem => orderItem.id !== idToRemove)
+        this.orderItems = this.orderItems.filter(orderItem => orderItem.id !== idToRemove)
         this.total = this.calculateTotal()
     }
 

@@ -1,30 +1,31 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled from "styled-components"
 
-export const ContainerLI = styled.li `
+export const ContainerLi = styled.li`
     border: 1px solid black;
-    margin:1em;
-    
-    display:flex;
+    margin: 1em;
+
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     h3,
-     .cardPrice {
-
+    .card-price {
         text-align: center;
     }
-
-
 `
-export const PizzaCard = (props) => {
 
-    const { pizza, addToCard } = props
+function PizzaCard(props) {
+    const { pizza, addToCart } = props
 
     return (
-        <ContainerLI>
+        <ContainerLi>
             <h3>{pizza.name}</h3>
-            <p className='cardPrice'>US$ {pizza.price.toFixed(2)}</p>
+            <p className="card-price">
+                {pizza.price.toLocaleString(
+                    'pt-br',
+                    { style: 'currency', currency: 'USD' }
+                )}
+            </p>
             <p>
                 {pizza.ingredients.map((item) => {
                     return (
@@ -32,7 +33,9 @@ export const PizzaCard = (props) => {
                     )
                 })}
             </p>
-            <button onClick={() => addToCard(pizza)}>Adicionar ao carrinho</button>
-        </ContainerLI>
+            <button onClick={() => addToCart(pizza)}>Adicionar no carrinho</button>
+        </ContainerLi>
     )
 }
+
+export default PizzaCard

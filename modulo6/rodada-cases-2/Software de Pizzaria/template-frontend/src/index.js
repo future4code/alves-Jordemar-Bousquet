@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { GlobalStyle } from './Global.styled';
 import CssBaseline from '@mui/material/CssBaseline';
-import { GlobalStyled } from './components/Global.styled';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <CssBaseline/>
-    <GlobalStyled/>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <CssBaseline />
+        <GlobalStyle />
+        <App />
+    </React.StrictMode>
 );
-

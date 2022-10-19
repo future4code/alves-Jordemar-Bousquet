@@ -1,8 +1,5 @@
-import styled from "styled-components"
+import {ContainerLi} from "./OrderItemCard.styled"
 
-export const ContainerLi = styled.li`
-    display: flex;
-`
 
 function OrderItemCard(props) {
     const { pizza, removeFromCart } = props

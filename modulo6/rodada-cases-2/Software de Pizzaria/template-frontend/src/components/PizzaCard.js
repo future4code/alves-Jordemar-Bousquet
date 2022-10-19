@@ -1,18 +1,5 @@
-import styled from "styled-components"
+import {ContainerLi} from './PizzaCard.styled'
 
-export const ContainerLi = styled.li`
-    border: 1px solid black;
-    margin: 1em;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    h3,
-    .card-price {
-        text-align: center;
-    }
-`
 
 function PizzaCard(props) {
     const { pizza, addToCart } = props

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import DescriptionAlerts from './AlertSucess'
 
 export const ContainerDiv = styled.div`
     border: 1px solid black;
@@ -40,7 +41,6 @@ function OrderSuccessPopup(props) {
     return (
         <ContainerDiv>
             <div>
-                <h2>Pedido realizado com sucesso!</h2>
                 <h3>Resumo do pedido</h3>
                 <p>Id do pedido: { order.id }</p>
                 { order.pizzas.map((pizza) => (
@@ -68,6 +68,7 @@ function OrderSuccessPopup(props) {
                     x
                 </span>
             </div>
+            <DescriptionAlerts/>
         </ContainerDiv>
     )
 }

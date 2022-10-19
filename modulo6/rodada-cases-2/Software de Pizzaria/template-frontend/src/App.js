@@ -5,6 +5,7 @@ import OrderSuccessPopup from "./components/OrderSuccessPopup";
 import { BASE_URL } from "./constants";
 import OrderSummary from "./screens/OrderSummary";
 import PizzasMenu from "./screens/PizzasMenu";
+import Header from './components/Header'
 
 export const ContainerMain = styled.main`
     display: flex;
@@ -54,11 +55,7 @@ function App() {
     }
 
     const removeFromCart = (pizzaToRemove) => {
-        // se a pizza possuir quantidade maior que 1
-        //  remover 1 da quantidade
-
-        // senao
-        //  remover o item inteiro do carrinho
+      
 
         if (pizzaToRemove.quantity > 1) {
             const newCart = cart.map((pizza) => {
@@ -121,6 +118,8 @@ function App() {
     }
 
     return (
+        <div>
+        <Header/>
         <ContainerMain>
             <PizzasMenu addToCart={addToCart} />
             <OrderSummary
@@ -136,6 +135,7 @@ function App() {
                     />
             }
         </ContainerMain>
+        </div>
     );
 }
 

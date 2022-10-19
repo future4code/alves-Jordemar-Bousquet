@@ -1,14 +1,10 @@
 import axios from "axios"
-import styled from "styled-components"
+import {ContainerSection} from "./PizzaMenu.styled"
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../constants"
 import PizzaCard from "../components/PizzaCard"
 
-export const ContainerSection = styled.section`
-    ul {
-        display: flex;
-    }
-`
+
 
 function PizzasMenu(props) {
     const { addToCart } = props

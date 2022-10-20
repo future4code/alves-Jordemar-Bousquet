@@ -1,4 +1,5 @@
 import {ContainerLi} from './PizzaCard.styled'
+import pizzacard from '../assents/pizzacard.png'
 
 
 function PizzaCard(props) {
@@ -6,21 +7,23 @@ function PizzaCard(props) {
 
     return (
         <ContainerLi>
+            <img src ={pizzacard}/>
             <h3>{pizza.name}</h3>
-            <p className="card-price">
-                {pizza.price.toLocaleString(
-                    'pt-br',
-                    { style: 'currency', currency: 'USD' }
-                )}
-            </p>
-            <p>
+            <p className="card-info">
                 {pizza.ingredients.map((item) => {
                     return (
                         <span key={item}>{`${item} `}</span>
                     )
                 })}
             </p>
-            <button onClick={() => addToCart(pizza)}>Adicionar no carrinho</button>
+            <h3 className="card-info">
+                {pizza.price.toLocaleString(
+                    'pt-br',
+                    { style: 'currency', currency: 'USD' }
+                )}
+            </h3>
+           
+            <button onClick={() => addToCart(pizza)}>Add to Cart</button>
         </ContainerLi>
     )
 }

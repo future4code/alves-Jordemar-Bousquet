@@ -3,11 +3,16 @@ import DescriptionAlerts from './AlertSucess'
 
 export const ContainerDiv = styled.div`
     border: 1px solid black;
-    position: absolute;
+    border-radius: 1em;
+    border-color: lightgrey;
+    margin: 1em;
+    padding: 1em;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
+    text-align:center;
 
     background-color: white;
 
@@ -41,8 +46,7 @@ function OrderSuccessPopup(props) {
     return (
         <ContainerDiv>
             <div>
-                <h3>Resumo do pedido</h3>
-                <p>Id do pedido: { order.id }</p>
+                <h2>Resumo do pedido</h2>
                 { order.pizzas.map((pizza) => (
                     <p key={pizza.name}>
                         Pizza {pizza.name} {" "}
@@ -54,11 +58,13 @@ function OrderSuccessPopup(props) {
                     </p>
                 )) }
                 <p>
+                <strong>
                     Total pago: {
                     order.total.toLocaleString(
                         'pt-br',
                         { style: 'currency', currency: 'USD' }
                     )}
+                </strong>
                 </p>
 
                 <span

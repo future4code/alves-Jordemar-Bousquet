@@ -6,6 +6,7 @@ import { BASE_URL } from "./constants";
 import OrderSummary from "./screens/OrderSummary";
 import PizzasMenu from "./screens/PizzasMenu";
 import Header from './components/Header'
+import Swal from 'sweetalert2'
 
 export const ContainerMain = styled.main`
     display: flex;
@@ -14,6 +15,9 @@ export const ContainerMain = styled.main`
 function App() {
     const [ cart, setCart ] = useState([])
     const [ total, setTotal ] = useState(0)
+    const Swal = require('sweetalert2')
+
+
     
     const [ orderSuccessPopupState, setOrderSuccessPopupState] = useState({
         isActive: false,
@@ -29,8 +33,6 @@ function App() {
     }, [cart])
 
     const addToCart = (pizzaToAdd) => {
-        // -1 se a pizza não existir
-        // 0 pra cima se ela existir
         const foundIndex = cart.findIndex((pizzaInCart) => {
             return pizzaInCart.name === pizzaToAdd.name
         })
@@ -52,6 +54,11 @@ function App() {
 
             setCart(newCart)
         }
+        Swal.fire({
+            title: 'Pizza add to cart!',
+            icon: 'success',
+          })
+
     }
 
     const removeFromCart = (pizzaToRemove) => {
@@ -75,6 +82,10 @@ function App() {
 
             setCart(newCart)
         }
+        Swal.fire({
+            title: 'Pizza Removed!',
+            icon: 'success',
+          })
     }
 
     const calculateTotal = () => {
@@ -84,6 +95,8 @@ function App() {
         )
 
         setTotal(total)
+
+        
     }
 
     const confirmOrder = async () => {

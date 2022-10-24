@@ -9,7 +9,7 @@ export default function DescriptionAlerts() {
   return (
     <Stack sx={{ width: '100%' }}>
       <Alert severity="success">
-        <AlertTitle>Pedido realizado com sucesso</AlertTitle>
+        <AlertTitle>Order Accept!!</AlertTitle>
       </Alert>
     </Stack>
   );

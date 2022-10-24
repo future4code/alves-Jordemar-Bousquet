@@ -46,7 +46,7 @@ function OrderSuccessPopup(props) {
     return (
         <ContainerDiv>
             <div>
-                <h2>Resumo do pedido</h2>
+                <h2>Order Resume</h2>
                 { order.pizzas.map((pizza) => (
                     <p key={pizza.name}>
                         Pizza {pizza.name} {" "}
@@ -59,7 +59,7 @@ function OrderSuccessPopup(props) {
                 )) }
                 <p>
                 <strong>
-                    Total pago: {
+                    Total: {
                     order.total.toLocaleString(
                         'pt-br',
                         { style: 'currency', currency: 'USD' }

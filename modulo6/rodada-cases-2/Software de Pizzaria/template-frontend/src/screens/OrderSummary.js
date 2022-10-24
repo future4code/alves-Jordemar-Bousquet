@@ -31,7 +31,7 @@ function OrderSummary(props) {
         <BagButton onClick={ShowOrder}>{iconChange?<img src ={alert}/>:''}<img src ={bag}/></BagButton>
         {!OrderResume? 
         <ContainerSection>
-            <h1>Resumo do pedido</h1>
+            <h1>Order</h1>
 
             {cart.map((pizza) => {
                 return (
@@ -50,7 +50,7 @@ function OrderSummary(props) {
                     { style: 'currency', currency: 'USD' }
                 )}
             </h2>
-            <button onClick={confirmOrder}>Confirmar pedido</button>
+            <button className='ConfirmOrder' onClick={confirmOrder}>Confirm Order</button>
         </ContainerSection>
             : ""}
         </div>

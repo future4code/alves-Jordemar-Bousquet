@@ -1,4 +1,5 @@
 import {ContainerLi} from "./OrderItemCard.styled"
+import remove from '../assents/remove.png'
 
 
 function OrderItemCard(props) {
@@ -14,7 +15,7 @@ function OrderItemCard(props) {
                 )}
                 {" "} x {pizza.quantity}
             </p>
-            <button onClick={() => removeFromCart(pizza)}>Remover item</button>
+            <button onClick={() => removeFromCart(pizza)}><img src ={remove}/></button>
         </ContainerLi>
     )
 }

@@ -28,9 +28,7 @@ export const Menubar = styled.ul `
 
 		.telIcon{
 			width: 35px;
-			@media (max-width:800px){
-				
-		};
+	
 		p{
 			display: inline;
 			padding-left: 15px;

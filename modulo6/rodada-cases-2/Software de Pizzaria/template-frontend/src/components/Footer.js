@@ -7,18 +7,23 @@ const ContarinerFooter = styled.ul `
    display: flex;
 	text-align: center;
     flex-direction: row;
-    padding:95px;
+    padding-top:155px;
     p{
         text-align: center;
     };
 
     img{
         width: 50px;
+      }
+
+      @media (max-width:800px){
+       display:block;
+       padding:0px;
+       position: static;
+       top:112%;
     }
 
 `
-
-
 
 const Footer = () => {
   return (
@@ -34,7 +39,7 @@ const Footer = () => {
 
         </li>
         <li>
-            <p> Made with delight by <strong>harmuder</strong></p>
+            <p> Made with delight by <strong>Jord Bousquet</strong></p>
         </li>
         
     </ContarinerFooter>

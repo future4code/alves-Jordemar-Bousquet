@@ -62,6 +62,11 @@ export const ContainerSection = styled.section`
   transform: translateY(0);
 }
 
+@media (max-width:800px){
+    width: 20em;
+
+}
+
 `
 
 export const BagButton = styled.button`

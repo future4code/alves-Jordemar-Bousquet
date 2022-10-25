@@ -16,5 +16,12 @@ export const ContainerLi = styled.li`
     img{
         width:25px;
     };
+    @media (max-width:800px){
+        img{
+        width:35px;
+        height: 25px;
+        margin-left:8px;
+    };   
+    }
     
 `

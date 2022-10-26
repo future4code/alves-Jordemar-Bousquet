@@ -10,7 +10,6 @@ import axios from 'axios'
 
 const DetailPage = () => {
 
-  const navigate = useNavigate()
   const params = useParams()
   const [Movie, setMovie] = useState('')
   const [Cast, setCast] = useState('')
@@ -75,11 +74,9 @@ const getRecommendationsById = () => {
   })
 }
 
-console.log(Recommendations)
-
   const GenresMovie = Movie.genres && Movie.genres.map((gen) => {
     return <p>
-      <>{gen.name},</>
+      <>{` - ${gen.name} -`}</>
     </p>
   })
 
@@ -98,7 +95,6 @@ console.log(Recommendations)
       <p style = {{color:"gray"}}>{info.release_date}</p>
         </div>
   })
-
 
   return (
     <div>

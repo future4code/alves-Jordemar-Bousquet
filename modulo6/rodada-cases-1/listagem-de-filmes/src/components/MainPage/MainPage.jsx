@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {goToDetailpage} from '../Routes/Coordinator'
-import {Container, MainTitle, MovieCard, MoviePoster} from './MainStyled'
+import {Container, MainTitle, MovieCard, MoviePoster, InfoContainer} from './MainStyled'
 import PaginationRounded from '../../Pagination/Pagination'
 import { BASE_URL, IMAGE_URL } from '../constants/urls'
 import { APIKEY } from '../constants/key'
@@ -19,7 +19,7 @@ useEffect(() =>{
 
 
 const getMoviePopular = () =>{
-  const url = `${BASE_URL}/movie/popular${APIKEY}&language=pt-BR`
+  const url = `${BASE_URL}/movie/popular${APIKEY}&language=pt-BR-BR&page=1`
 
   axios.get(url)
   .then((resp)=>{
@@ -38,9 +38,11 @@ const MovieTitle = MovieList && MovieList.map((movie) =>{
 
 
     return <div key= {id} value = {id}>
-      <MoviePoster src = {`${IMAGE_URL}${poster}`} style = {{width:"210px"}} onClick={() => goToDetailpage(navigate,id)}/>
-      <p><strong>{movie.title}</strong></p>
+      <MoviePoster src = {`${IMAGE_URL}${poster}`} onClick={() => goToDetailpage(navigate,id)}/>
+      <InfoContainer>
+      <h4>{movie.title}</h4>
       <p style = {{color:"gray"}}>{movie.release_date}</p>
+      </InfoContainer>
     </div>
 })
 
@@ -53,7 +55,7 @@ const MovieTitle = MovieList && MovieList.map((movie) =>{
     <button onClick={() => goToDetailpage(navigate)}></button>
     <MovieCard>
       {MovieTitle}
-      <PaginationRounded/>
+    <PaginationRounded/>
     </MovieCard>
     </div>
     

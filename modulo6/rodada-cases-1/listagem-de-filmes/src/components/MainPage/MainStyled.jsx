@@ -22,12 +22,20 @@ export const MainTitle = styled.h1`
 export const MovieCard = styled.div`
   display:flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 15px 55px 0px 55px;
+  justify-content: center;
+  margin: 15px 52px 0px 55px;
+
   
 ` 
 
 export const MoviePoster = styled.img`
+	display: flex;
+	justify-content: center;
+	width: 18em;
+	height:25em;
+	margin:12px;
+	
+
   cursor:pointer;
   :hover{
     opacity: 1;
@@ -50,5 +58,13 @@ export const MoviePoster = styled.img`
 		opacity: 1;
 	}
 }
+
+`
+
+
+export const InfoContainer = styled.div`
+  text-align: center;
+  font-size: small;
+
 
 `

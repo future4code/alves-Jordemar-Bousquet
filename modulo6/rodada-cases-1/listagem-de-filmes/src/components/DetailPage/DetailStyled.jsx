@@ -66,19 +66,24 @@ export const TrailerContainer = styled.div`
 export const RecommendationsContainer = styled.div`
   display:flex;
   flex-direction: row;
+  text-align: center;
   margin-left: 55px;
-  width:100%;
+  width:92%;
   overflow-x: scroll;
   overflow-y: hidden;
 
 `
 
 export const RecommendationsImage = styled.img`
-    padding: 5px;
+    padding: 15px;
+    width: 10em;
+    height:17em;
+    
     
     `
 
 export const RecommendationsTitle = styled.h3`
     margin-left: 55px;
+    
 
 `

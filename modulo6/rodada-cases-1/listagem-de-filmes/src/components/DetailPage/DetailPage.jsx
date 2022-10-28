@@ -105,7 +105,7 @@ const getRecommendationsById = () => {
         <GenderList>
         {GenresMovie}
         </GenderList>
-        
+        <p>oi</p>
         <Sinopse>
         <h3>Sinopse</h3>
           {Movie.overview}

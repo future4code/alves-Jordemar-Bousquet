@@ -1,8 +1,9 @@
 import React , {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {goToDetailpage} from '../Routes/Coordinator'
-import {Container, MainTitle, MovieCard, MoviePoster, InfoContainer} from './MainStyled'
-import PaginationRounded from '../../Pagination/Pagination'
+import {Container, MainTitle, MovieCard, MoviePoster, InfoContainer, ContainerPagination} from './MainStyled'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import { BASE_URL, IMAGE_URL } from '../constants/urls'
 import { APIKEY } from '../constants/key'
 import axios from 'axios'
@@ -10,16 +11,18 @@ import axios from 'axios'
 const MainPage = () => {
 const navigate = useNavigate()
 const [MovieList, SetMovieList] = useState("")
+const [page, setPage] = useState(1)
 
+console.log(page)
 
 useEffect(() =>{
   getMoviePopular();
-},[])
+},[page])
 
 
 
 const getMoviePopular = () =>{
-  const url = `${BASE_URL}/movie/popular${APIKEY}&language=pt-BR-BR&page=1`
+  const url = `${BASE_URL}/movie/popular${APIKEY}&language=pt-BR-BR&page=${page}`
 
   axios.get(url)
   .then((resp)=>{
@@ -55,8 +58,18 @@ const MovieTitle = MovieList && MovieList.map((movie) =>{
     <button onClick={() => goToDetailpage(navigate)}></button>
     <MovieCard>
       {MovieTitle}
-    <PaginationRounded/>
     </MovieCard>
+    <ContainerPagination>
+    <Stack spacing={2} >
+    <a href ="#"> <Pagination 
+      count={10} 
+      shape="rounded" 
+      onChange={(_,newPage)=>{setPage(newPage)}}
+      page ={page}
+      />
+      </a>
+     </Stack>
+     </ContainerPagination>
     </div>
     
   )

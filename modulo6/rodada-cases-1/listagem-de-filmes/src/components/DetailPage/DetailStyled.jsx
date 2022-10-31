@@ -10,7 +10,6 @@ color:white;
 
 `
 
-
 export const Title = styled.div`
     display: flex;
     margin-top: 13px;
@@ -21,6 +20,9 @@ export const GenderList = styled.div`
     display:flex;
     flex-direction: row;
     margin-bottom: 120px;
+    dl {
+        padding-right: 0px;
+    }
 `
 
 export const Sinopse = styled.p`

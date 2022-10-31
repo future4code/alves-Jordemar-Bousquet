@@ -6,6 +6,7 @@ import { Container, Title, GenderList, Sinopse, ImgPoster,CastContainer, CastIma
 import { BASE_URL, IMAGE_URL,YOUTUBE_URL} from '../constants/urls'
 import { APIKEY } from '../constants/key'
 import axios from 'axios'
+import CircularProgressWithLabel from '../CircularProgressLabel'
 
 
 const DetailPage = () => {
@@ -15,6 +16,8 @@ const DetailPage = () => {
   const [Cast, setCast] = useState('')
   const [Trailer, setTrailer] = useState('')
   const [Recommendations, setRecommendations] = useState('')
+  const NumberRating = Math.trunc(Movie.vote_average).toFixed(1)
+  const StringRating = NumberRating.toString().replace(".", "")
 
 
   useEffect(() => {
@@ -75,9 +78,11 @@ const getRecommendationsById = () => {
 }
 
   const GenresMovie = Movie.genres && Movie.genres.map((gen) => {
-    return <p>
-      <>{` - ${gen.name} -`}</>
-    </p>
+    return <div>
+      <dl>
+      <dd>{gen.name}</dd>
+      </dl>
+    </div>
   })
 
   const CanstInfo = Cast && Cast.map((info)=>{
@@ -105,7 +110,11 @@ const getRecommendationsById = () => {
         <GenderList>
         {GenresMovie}
         </GenderList>
-        <p>oi</p>
+        <CircularProgressWithLabel
+        value={StringRating}/>
+        <p>
+         Avaliação dos <br/> usuários
+         </p>
         <Sinopse>
         <h3>Sinopse</h3>
           {Movie.overview}

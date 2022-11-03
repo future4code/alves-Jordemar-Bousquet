@@ -4,12 +4,11 @@ export const Container = styled.div`
 display: flex;
 flex-direction: column;
 background-color:#2d0c5d;
-padding:50px 0px 150px 525px;
+padding:50px 0px 104px 525px;
 
 color:white;
 
 `
-
 
 export const Title = styled.div`
     display: flex;
@@ -20,7 +19,13 @@ export const Title = styled.div`
 export const GenderList = styled.div`
     display:flex;
     flex-direction: row;
-    margin-bottom: 120px;
+    margin-bottom: 28px;
+    dd{
+        display:inline;
+        margin: 8px;
+        text-decoration:underline;
+    }
+
 `
 
 export const Sinopse = styled.p`
@@ -33,6 +38,7 @@ export const ImgPoster = styled.img`
     position:absolute;
     top:133px;
     margin-left:6%;
+    border-radius: 10px;
 
 
 `
@@ -42,16 +48,15 @@ export const CastImage = styled.img`
     margin: 8px;
     border: 1px solid black;
     box-shadow:7px 7px 5px rgba(50, 50, 50, 0.77);
-
-   
+    border-radius: 10px;
 `
 export const CastContainer = styled.div`
     display: flex;
     flex-direction: row;
     margin-left: 55px;
-    width:100%;
     overflow-x: scroll;
     overflow-y: hidden;
+    width:92%;
 `
 
 export const CastTitle = styled.h2`
@@ -60,25 +65,57 @@ export const CastTitle = styled.h2`
 `
 
 export const TrailerContainer = styled.div`
-    margin-left: 55px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 75px;
 `
 
 export const RecommendationsContainer = styled.div`
   display:flex;
   flex-direction: row;
+  text-align: center;
   margin-left: 55px;
-  width:100%;
+  width:92%;
   overflow-x: scroll;
   overflow-y: hidden;
-
+  
 `
 
 export const RecommendationsImage = styled.img`
-    padding: 5px;
+    padding: 15px;
+    width: 10em;
+    height:17em;
+    border-radius: 10px;
+    cursor:pointer;
+  :hover{
+    opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+    
     
     `
 
 export const RecommendationsTitle = styled.h3`
     margin-left: 55px;
+    
 
 `

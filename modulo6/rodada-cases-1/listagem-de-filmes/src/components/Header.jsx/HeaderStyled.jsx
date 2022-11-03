@@ -14,6 +14,7 @@ export const HeaderTitle = styled.h2`
     margin-left: 65px;
     font-family:Arial, Helvetica, sans-serif;
     font-size:xx-large;
+    cursor: pointer;
 
 `
 

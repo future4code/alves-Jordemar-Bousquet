@@ -3,6 +3,7 @@ import MainPage  from '../MainPage/MainPage'
 import DetailPage from '../DetailPage/DetailPage'
 import React from 'react'
 import Header from '../Header.jsx/Header'
+import Footer from '../Footer/Footer'
 
 
 const Router = () => {
@@ -13,6 +14,7 @@ const Router = () => {
         <Route index element ={<MainPage/>} />
         <Route path = "detail/:id" element ={<DetailPage/>}/>
     </Routes>
+    <Footer/>
     </BrowserRouter>
   )
 }

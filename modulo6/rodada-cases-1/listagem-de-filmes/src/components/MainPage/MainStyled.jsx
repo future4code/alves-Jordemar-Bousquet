@@ -20,14 +20,25 @@ export const MainTitle = styled.h1`
 
 `
 export const MovieCard = styled.div`
-  display:flex;
+  margin: 0 auto;
+  margin-top: 32px;
+  max-width: 90vw;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 15px 55px 0px 55px;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
   
 ` 
 
 export const MoviePoster = styled.img`
+ 	display: flex;
+  flex-wrap:nowrap ;
+	justify-content: center;
+	width: 15em;
+	height:23em;
+	
   cursor:pointer;
   :hover{
     opacity: 1;
@@ -50,5 +61,20 @@ export const MoviePoster = styled.img`
 		opacity: 1;
 	}
 }
+
+`
+
+export const InfoContainer = styled.div`
+  text-align: center;
+  font-size: small;
+
+
+`
+
+export const ContainerPagination = styled.div`
+		display:flex;
+		align-items:center; 
+		justify-content: center;
+
 
 `

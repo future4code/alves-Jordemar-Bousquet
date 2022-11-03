@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { goToMainPage } from '../Routes/Coordinator'
+import { refreshDetailpage } from '../Routes/Coordinator'
 import { Container, Title, GenderList, Sinopse, ImgPoster,CastContainer, CastImage, CastTitle, TrailerContainer, RecommendationsContainer,RecommendationsImage, RecommendationsTitle} from './DetailStyled'
-
 import { BASE_URL, IMAGE_URL,YOUTUBE_URL} from '../constants/urls'
 import { APIKEY } from '../constants/key'
 import axios from 'axios'
-
+import CircularProgressWithLabel from '../CircularProgressLabel'
+import Loading from '../Loading'
+import moment from "moment"
 
 const DetailPage = () => {
 
@@ -16,14 +17,16 @@ const DetailPage = () => {
   const [Cast, setCast] = useState('')
   const [Trailer, setTrailer] = useState('')
   const [Recommendations, setRecommendations] = useState('')
+  const NumberRating = Math.trunc(Movie.vote_average).toFixed(1)
+  const StringRating = NumberRating.toString().replace(".", "")
 
-
-  useEffect(() => {
+ 
+  useLayoutEffect(() => {
     getMovieById();
     getCastbyId();
     getTrailerbyId();
     getRecommendationsById();
-  }, [])
+  })
 
 
   const getMovieById = () => {
@@ -75,12 +78,12 @@ const getRecommendationsById = () => {
   })
 }
 
-console.log(Recommendations)
-
   const GenresMovie = Movie.genres && Movie.genres.map((gen) => {
-    return <p>
-      <>{gen.name},</>
-    </p>
+    return <div key = {gen.id}>
+      <dl>
+      <dd>{gen.name}</dd>
+      </dl>
+    </div>
   })
 
   const CanstInfo = Cast && Cast.map((info)=>{
@@ -93,12 +96,11 @@ console.log(Recommendations)
 
   const RecommendationsInfo = Recommendations && Recommendations.map((info) =>{
         return <div key= {info.id} value = {info.id}>
-          <RecommendationsImage src = {`${IMAGE_URL}${info.poster_path}`} style = {{width:"180px"}}/>
+          <RecommendationsImage src = {`${IMAGE_URL}${info.poster_path}`} style = {{width:"180px"}} onClick={() => refreshDetailpage(navigate,info.id)} />
       <p><strong>{info.title}</strong></p>
-      <p style = {{color:"gray"}}>{info.release_date}</p>
+      <p style = {{color:"gray"}}>{moment(info.release_date).format("DD/MM/YYYY")}</p>
         </div>
   })
-
 
   return (
     <div>
@@ -107,26 +109,34 @@ console.log(Recommendations)
         <h1>{Movie.title}</h1>
         </Title>
         <GenderList>
-        {GenresMovie}
+          <p>Generos:</p>
+          {GenresMovie}
         </GenderList>
-        
-        <Sinopse>
+       <p>Data de Lançamento: {moment(Movie.release_date).format("DD/MM/YYYY")}</p>
+        <CircularProgressWithLabel
+        value={Number(StringRating)}/>
+        <p>
+         Avaliação dos <br/> usuários
+         </p>
         <h3>Sinopse</h3>
-          {Movie.overview}
+        <Sinopse>
+          {Movie.overview? Movie.overview:"Não há sinopse"}
           </Sinopse>
       </Container>
-      <ImgPoster src={`${IMAGE_URL}${Movie.poster_path}`} style={{ width: "418px" }} />
+       <ImgPoster src={`${IMAGE_URL}${Movie.poster_path}`} style={{ width: "418px" }} />
       <CastTitle>Elenco Original</CastTitle>
       <CastContainer>
-      {CanstInfo}
+      {Cast? CanstInfo : <Loading/>}
       </CastContainer>
+      {Trailer && (
       <TrailerContainer>
-      <h1>{Trailer? Trailer.name : "Não há Trailer disponível"}</h1>
-      <iframe width="680" height="360" src ={`${YOUTUBE_URL}${Trailer.key}`}  allowfull/>
+      <h2>{Trailer.name}</h2>
+      <iframe width="680" height="360" title ="Trailer" src ={`${YOUTUBE_URL}${Trailer.key}`} />
       </TrailerContainer>
+      )}
       <RecommendationsTitle>Recomendações</RecommendationsTitle>
       <RecommendationsContainer>
-      {RecommendationsInfo}
+      {Recommendations? RecommendationsInfo : <Loading/>}
       </RecommendationsContainer>
     </div>
   )

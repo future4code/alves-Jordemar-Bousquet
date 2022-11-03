@@ -18,7 +18,7 @@ function CircularProgressLabel(props) {
           variant="determinate"
           size="60"
           {...props}
-          sx={{ color: "#14FF00", width: "62px"}}
+          sx={{ color: "#14FF00", width: "62px", margin:"12px"}}
         />
         <Box
           sx={{
@@ -38,7 +38,7 @@ function CircularProgressLabel(props) {
             color="text.secondary"
             sx={{
               position: "relative",
-              right:"49px",
+              right:"60px",
               color: "#14FF00",
               fontSize: "16px",
               fontWeight: "600",
